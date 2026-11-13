@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>K7 &amp; Floppy — Emulador Microdigital TK 2000 II &amp; Apple II+ (6502) | 4u-Labs</title>
   <meta name="description" content="Bancada retrô real no navegador: alterne entre Microdigital TK 2000 II (gravador K7 com 110+ fitas .CT2 e CompatBoot) e Apple II+ (drive Disk II com 50 disquetes .DSK), manuais interativos e BASIC. Grátis, bilíngue e 100% client-side." />
   <meta name="keywords" content="K7 &amp; Floppy, TK 2000, Microdigital TK2000 II, Apple II+, emulador Apple II online, emulador TK 2000 online, fita K7 .CT2, disquete .DSK, Disk II, Data Recorder, CPU 6502, Karateka, Choplifter, Lode Runner, 4u-Labs" />
@@ -260,6 +260,21 @@
               </div>
             </div>
             <div class="crt-stand"></div>
+          </div>
+
+          <!-- Controles Touch para Celular (D-Pad + Joystick + Ação / Enter) -->
+          <div id="mobile-touch-controls" class="mobile-touch-controls" aria-label="Controles Touch">
+            <div class="mobile-dpad" role="group" aria-label="Direcional">
+              <button type="button" class="touch-pad-btn" data-code="ArrowLeft" data-key="ArrowLeft" aria-label="Esquerda">◀</button>
+              <button type="button" class="touch-pad-btn" data-code="ArrowUp" data-key="ArrowUp" aria-label="Cima">▲</button>
+              <button type="button" class="touch-pad-btn" data-code="ArrowDown" data-key="ArrowDown" aria-label="Baixo">▼</button>
+              <button type="button" class="touch-pad-btn" data-code="ArrowRight" data-key="ArrowRight" aria-label="Direita">▶</button>
+            </div>
+            <div class="mobile-action-cluster">
+              <button type="button" id="btn-mobile-joy" class="touch-joy-btn" title="Alternar Joystick / Teclado">🕹️ <span id="mobile-joy-state">Teclas</span></button>
+              <button type="button" class="touch-pad-btn touch-fire-btn" data-code="Space" data-key=" ">🔥 <span id="mobile-space-label">ESPAÇO</span></button>
+              <button type="button" class="touch-pad-btn touch-enter-btn" data-code="Enter" data-key="Enter">↵ ENTER</button>
+            </div>
           </div>
 
           <!-- Microdigital TK 2000 II -->

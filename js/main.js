@@ -360,6 +360,9 @@ function applyLanguageUI() {
   const paypalLink = document.getElementById('eco-paypal-link');
   if (paypalLink) paypalLink.textContent = tr('☕ Apoiar o projeto (PayPal) ↗', '☕ Support this project (PayPal) ↗');
 
+  const mobileSpaceEl = document.getElementById('mobile-space-label');
+  if (mobileSpaceEl) mobileSpaceEl.textContent = tr('ESPAÇO', 'SPACE');
+
   updateLampUI();
   updateCrtModeUI();
   updateMuteUI();
@@ -456,6 +459,10 @@ function updateJoystickUI() {
   btnJoystickMode.classList.toggle('active', joystickMode);
   joyLed.classList.toggle('green-on', joystickMode);
   joyModeLabel.textContent = joystickMode ? 'Joystick ($C064)' : tr('Teclado', 'Keyboard');
+  const mobileJoyBtn = document.getElementById('btn-mobile-joy');
+  const mobileJoyState = document.getElementById('mobile-joy-state');
+  if (mobileJoyBtn) mobileJoyBtn.classList.toggle('active', joystickMode);
+  if (mobileJoyState) mobileJoyState.textContent = joystickMode ? 'Joystick' : tr('Teclas', 'Keys');
   if (!joystickMode) {
     joyKeysDown.clear();
     machine.paddleX = 128;
@@ -1619,6 +1626,92 @@ function clearStickyModifiers() {
   }
 }
 
+const JOYSTICK_MAPPED_CODES = new Set([
+  'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Space', 'AltLeft', 'AltRight',
+]);
+
+function setEmulatedTouchKey(code, key, isDown, opts = {}) {
+  const { sub = '' } = opts;
+  keyElementsByCode.get(code)?.classList.toggle('active', isDown);
+
+  if (isDown) {
+    syncAudioUnlock();
+    audio.playKeyClick();
+    if (activeMode === 'arcade') {
+      if (activeBonusApp instanceof TkBasicShell) {
+        activeBonusApp.handleKeyDown(code, key, stickyCtrl);
+        if (key.length === 1 && !stickyCtrl) {
+          activeBonusApp.handleChar(stickyShift && sub ? sub : key);
+        }
+        clearStickyModifiers();
+      } else {
+        bonusKeysDown.add(code);
+        activeBonusApp?.onKeyDown?.(code);
+      }
+      return;
+    }
+    if (!powerOn) return;
+    if (joystickMode && JOYSTICK_MAPPED_CODES.has(code)) {
+      joyKeysDown.add(code);
+      updateJoystickAxes();
+      return;
+    }
+    if (activeMode === 'apple2') {
+      const keyChar = stickyShift && sub ? sub : key;
+      apple2.setKeyState(code, keyChar, true, stickyCtrl);
+      clearStickyModifiers();
+    } else {
+      machine.keyboard.setKeyState(code, key, true, stickyShift, stickyCtrl);
+    }
+    return;
+  }
+
+  if (activeMode === 'arcade') {
+    bonusKeysDown.delete(code);
+    return;
+  }
+  if (joystickMode && JOYSTICK_MAPPED_CODES.has(code)) {
+    joyKeysDown.delete(code);
+    updateJoystickAxes();
+    return;
+  }
+  if (activeMode === 'apple2') {
+    apple2.setKeyState(code, key, false, false);
+    clearStickyModifiers();
+  } else if (activeMode === 'tk2000') {
+    machine.keyboard.setKeyState(code, key, false, false, false);
+    clearStickyModifiers();
+    machine.keyboard.shift = false;
+    machine.keyboard.ctrl = false;
+  }
+}
+
+function bindHoldPointerKey(btn, code, key, sub = '') {
+  const activePointers = new Set();
+  const press = (e) => {
+    e.preventDefault();
+    if (typeof btn.setPointerCapture === 'function' && e.pointerId !== undefined) {
+      try { btn.setPointerCapture(e.pointerId); } catch {}
+    }
+    const wasEmpty = activePointers.size === 0;
+    activePointers.add(e.pointerId ?? 'mouse');
+    btn.classList.add('active');
+    if (wasEmpty) setEmulatedTouchKey(code, key, true, { sub });
+  };
+  const release = (e) => {
+    const pid = e.pointerId ?? 'mouse';
+    if (!activePointers.has(pid) && activePointers.size === 0) return;
+    activePointers.delete(pid);
+    if (activePointers.size > 0) return;
+    btn.classList.remove('active');
+    setEmulatedTouchKey(code, key, false, { sub });
+  };
+  btn.addEventListener('pointerdown', press);
+  btn.addEventListener('pointerup', release);
+  btn.addEventListener('pointercancel', release);
+  btn.addEventListener('lostpointercapture', release);
+}
+
 function buildKeyboard() {
   tkKeyboardEl.innerHTML = '';
   for (const row of TK_KEYBOARD_ROWS) {
@@ -1656,55 +1749,7 @@ function buildKeyboard() {
           machine.keyboard.ctrl = stickyCtrl;
         });
       } else {
-        let isDown = false;
-        const press = (e) => {
-          e.preventDefault();
-          if (isDown) return;
-          isDown = true;
-          syncAudioUnlock();
-          audio.playKeyClick();
-          btn.classList.add('active');
-
-          if (activeMode === 'arcade') {
-            if (activeBonusApp instanceof TkBasicShell) {
-              activeBonusApp.handleKeyDown(item.code, item.key, stickyCtrl);
-              if (item.key.length === 1 && !stickyCtrl) {
-                activeBonusApp.handleChar(stickyShift && item.sub ? item.sub : item.key);
-              }
-              clearStickyModifiers();
-            } else {
-              bonusKeysDown.add(item.code);
-              activeBonusApp?.onKeyDown?.(item.code);
-            }
-          } else if (activeMode === 'apple2' && powerOn) {
-            const keyChar = stickyShift && item.sub ? item.sub : item.key;
-            apple2.setKeyState(item.code, keyChar, true, stickyCtrl);
-            clearStickyModifiers();
-          } else if (powerOn) {
-            machine.keyboard.setKeyState(item.code, item.key, true, stickyShift, stickyCtrl);
-          }
-        };
-        const release = () => {
-          if (!isDown) return;
-          isDown = false;
-          btn.classList.remove('active');
-          if (activeMode === 'arcade') {
-            bonusKeysDown.delete(item.code);
-          } else if (activeMode === 'apple2') {
-            apple2.setKeyState(item.code, item.key, false, false);
-            clearStickyModifiers();
-          } else if (activeMode === 'tk2000') {
-            machine.keyboard.setKeyState(item.code, item.key, false, false, false);
-            clearStickyModifiers();
-            machine.keyboard.shift = false;
-            machine.keyboard.ctrl = false;
-          }
-        };
-
-        btn.addEventListener('pointerdown', press);
-        btn.addEventListener('pointerup', release);
-        btn.addEventListener('pointerleave', release);
-        btn.addEventListener('pointercancel', release);
+        bindHoldPointerKey(btn, item.code, item.key, item.sub || '');
       }
 
       rowEl.appendChild(btn);
@@ -1713,10 +1758,20 @@ function buildKeyboard() {
   }
 }
 
+function initMobileTouchControls() {
+  document.querySelectorAll('#mobile-touch-controls .touch-pad-btn').forEach((btn) => {
+    const code = btn.dataset.code;
+    const key = btn.dataset.key || code;
+    if (code) bindHoldPointerKey(btn, code, key);
+  });
+  document.getElementById('btn-mobile-joy')?.addEventListener('click', () => {
+    joystickMode = !joystickMode;
+    updateJoystickUI();
+  });
+}
+initMobileTouchControls();
+
 // Eventos do teclado real do PC
-const JOYSTICK_MAPPED_CODES = new Set([
-  'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Space', 'AltLeft', 'AltRight',
-]);
 
 window.addEventListener('keydown', (e) => {
   if (!manualModal.classList.contains('hidden')) {

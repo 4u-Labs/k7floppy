@@ -1901,3 +1901,329 @@ body.machine-apple2 .floppy-rack {
   border-color: #38bdf8;
   box-shadow: 0 3px 10px rgba(14, 165, 233, 0.3);
 }
+
+
+/* ============================================================
+   Otimização Mobile / Touch (Celulares e Tablets)
+   ============================================================ */
+.room-backdrop {
+  overflow-x: hidden;
+}
+
+button,
+a,
+label,
+.tk-key,
+.touch-pad-btn,
+.tape-item,
+.floppy-item {
+  touch-action: manipulation;
+}
+
+.mobile-touch-controls {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  max-width: 635px;
+  padding: 7px 9px;
+  border-radius: 10px;
+  background: rgba(14, 16, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.42);
+}
+
+.mobile-dpad {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  touch-action: none;
+}
+
+.mobile-action-cluster {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: flex-end;
+}
+
+.touch-pad-btn {
+  min-width: 38px;
+  height: 38px;
+  border-radius: 7px;
+  border: 1px solid #475569;
+  background: linear-gradient(180deg, #334155 0%, #1e293b 100%);
+  color: #f8fafc;
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  touch-action: none;
+  box-shadow: 0 2px 0 #090a0d;
+}
+
+.touch-pad-btn.active {
+  transform: translateY(1px);
+  background: #fbbf24;
+  color: #111827;
+  border-color: #fde047;
+}
+
+.touch-joy-btn {
+  height: 38px;
+  padding: 0 9px;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  color: #e4e4e7;
+  font-size: 0.68rem;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.touch-joy-btn.active {
+  background: rgba(34, 197, 94, 0.24);
+  border-color: #4ade80;
+  color: #bbf7d0;
+}
+
+.touch-fire-btn {
+  padding: 0 10px;
+  font-size: 0.68rem;
+  background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%);
+  border-color: #f87171;
+}
+
+.touch-enter-btn {
+  padding: 0 9px;
+  font-size: 0.66rem;
+  background: linear-gradient(180deg, #4b5563 0%, #374151 100%);
+  border-color: #9ca3af;
+  color: #fde68a;
+}
+
+@media (max-width: 1080px) {
+  #btn-lamp {
+    display: none;
+  }
+}
+
+@media (max-width: 820px), (hover: none) and (pointer: coarse) {
+  .mobile-touch-controls {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+
+  .topbar-brand {
+    width: 100%;
+    justify-content: space-between;
+    font-size: 0.8rem;
+  }
+
+  .machine-switcher {
+    width: 100%;
+  }
+
+  .machine-switch-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 6px 8px;
+    min-height: 36px;
+    font-size: 0.72rem;
+  }
+
+  .topbar-actions {
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 6px;
+    padding-bottom: 2px;
+  }
+
+  .topbar-actions::-webkit-scrollbar {
+    display: none;
+  }
+
+  .topbar-actions .pill-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 6px 10px;
+    font-size: 0.72rem;
+  }
+
+  .desk-stage {
+    padding: 6px 6px 12px;
+  }
+
+  .desk-surface {
+    padding: 10px 8px 12px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  #engine-badge {
+    font-size: 0.58rem;
+    padding: 2px 6px;
+  }
+
+  .crt-bezel {
+    padding: 8px 8px 6px;
+    border-radius: 14px 14px 10px 10px;
+    border-width: 2px;
+  }
+
+  .crt-screen-frame {
+    border-width: 6px;
+    border-radius: 10px;
+  }
+
+  .crt-brand {
+    font-size: 0.56rem;
+    letter-spacing: 0.06em;
+  }
+
+  .tk2000-unit {
+    padding: 7px 6px 8px;
+    border-radius: 10px;
+  }
+
+  .tk-vent,
+  .tk-sub {
+    display: none;
+  }
+
+  .tk-nameplate {
+    padding: 2px 7px;
+    gap: 5px;
+  }
+
+  .tk-keywell {
+    padding: 4px;
+  }
+
+  .tk-keyboard {
+    gap: 3px;
+  }
+
+  .kb-row {
+    gap: 2px;
+    width: 100%;
+  }
+
+  .tk-key {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 34px;
+    padding: 1px;
+    font-size: 0.6rem;
+    border-radius: 3px;
+    box-shadow: 0 2px 0 #090a0d;
+  }
+
+  .tk-key .sub-legend {
+    font-size: 0.42rem;
+  }
+
+  .tk-key.wide {
+    flex: 1.45 1 0;
+    min-width: 0;
+    font-size: 0.48rem;
+  }
+
+  .tk-key.wider {
+    flex: 1.75 1 0;
+    min-width: 0;
+    font-size: 0.48rem;
+  }
+
+  .tk-key.space {
+    flex: 5 1 0;
+    max-width: none;
+  }
+
+  .tape-rack,
+  .floppy-rack {
+    max-height: 265px;
+  }
+
+  .tape-item,
+  .floppy-item {
+    min-height: 44px;
+    padding: 7px 8px;
+  }
+
+  .modal-overlay {
+    padding: 8px;
+  }
+
+  .modal-card,
+  .catalog-modal-card {
+    width: 100%;
+    max-height: 92vh;
+  }
+
+  .modal-header {
+    padding: 10px 12px;
+  }
+
+  .modal-body {
+    padding: 12px;
+  }
+
+  .catalog-toolbar {
+    padding: 8px 12px;
+  }
+
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .eco-footer {
+    padding: 10px 12px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .eco-footer-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .mobile-touch-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .mobile-dpad,
+  .mobile-action-cluster {
+    justify-content: space-between;
+  }
+
+  .mobile-dpad .touch-pad-btn,
+  .mobile-action-cluster button {
+    flex: 1;
+  }
+
+  .tk-key {
+    height: 32px;
+    font-size: 0.56rem;
+  }
+}
