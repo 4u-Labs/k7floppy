@@ -344,8 +344,8 @@ function applyLanguageUI() {
   setPack(
     'pack-a2-media',
     tr('Pack Disquetes .DSK', '.DSK Floppy Pack'),
-    tr('appleii.zip • 50 discos', 'appleii.zip • 50 disks'),
-    tr('Baixar todos os 50 disquetes .DSK do Apple II+ (2,1 MB)', 'Download all 50 Apple II+ .DSK disk images (2.1 MB)')
+    tr('appleii.zip • 150 discos', 'appleii.zip • 150 disks'),
+    tr('Baixar todos os 150 disquetes .DSK do Apple II+ (6,8 MB)', 'Download all 150 Apple II+ .DSK disk images (6.8 MB)')
   );
   setPack(
     'pack-a2-manuals',
@@ -2365,7 +2365,7 @@ function renderCatalogModal() {
     if (isA2) {
       catalogZipLink.href = 'https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/appleii.zip';
       catalogZipLink.removeAttribute('download');
-      catalogZipLink.textContent = tr('📥 Baixar Pack appleii.zip (2,1 MB)', '📥 Download appleii.zip Pack (2.1 MB)');
+      catalogZipLink.textContent = tr('📥 Baixar Pack appleii.zip (6,8 MB)', '📥 Download appleii.zip Pack (6.8 MB)');
     } else {
       catalogZipLink.href = 'https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/tk2000.zip';
       catalogZipLink.removeAttribute('download');
