@@ -1069,7 +1069,17 @@ function renderTapeRack() {
     const desc = currentLang === 'en' ? (item.descriptionEn || item.description) : item.description;
     row.title = desc || item.title;
 
+    const tapeThumb = document.createElement('img');
+    tapeThumb.className = 'tape-mini-icon';
+    tapeThumb.src = 'assets/k7-mini.webp';
+    tapeThumb.alt = '';
+    tapeThumb.width = 30;
+    tapeThumb.height = 19;
+    tapeThumb.loading = 'lazy';
+    row.appendChild(tapeThumb);
+
     const info = document.createElement('div');
+    info.className = 'tape-item-info';
     const titleEl = document.createElement('strong');
     titleEl.innerHTML = `${item.title}${item.badge ? `<span class="media-item-badge">${item.badge}</span>` : ''}`;
     const subEl = document.createElement('small');
@@ -2331,7 +2341,9 @@ function renderCatalogModal() {
     card.className = `catalog-card ${item.isActive ? 'active' : ''}`;
     card.style.setProperty('--card-accent', item.color);
 
-    const icon = isA2 ? '💾' : '📼';
+    const icon = isA2
+      ? '💾'
+      : '<img class="catalog-k7-icon" src="assets/k7-mini.webp" alt="" width="22" height="14" />';
     const actionLabel = item.isActive
       ? tr('⏹ Em execução (Clique p/ ejetar)', '⏹ Running (Click to eject)')
       : isA2
