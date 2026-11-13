@@ -1,0 +1,11 @@
+CORRIDA (Microsoft)/DESAFIO FATAL (SoftKristian) / (HEAD-ON)
+Você é um piloto de corridas de demolição. Uma potente máquina está em suas mãos, para vencer um desafio nunca sequer imaginado: correr em uma pista fechada, na mão de direção contrária em relação a um caro teleguiado, sem colidir.
+Para vencer cada bateria, você deverá percorrer todo o circuito, passando em cad alocal pelo menos uma vez. Para efeito de controle da comissão organizadora, a pista está toda marcada, e o seu carro, enquanto anda, irá apagando as marcas do piso.
+Ao final da algumas baterias, um outro carro teleguiado será adicionado as circuito, também em mão de direção contrária à sua.
+---
+Para carregar digite:
+
+LOADT   <RETURN>
+
+Para se movimentar use as setas e as teclas "A" e "Z" .
+<RETURN> para começar.

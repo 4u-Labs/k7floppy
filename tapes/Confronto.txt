@@ -1,0 +1,21 @@
+CONFRONTO - Microdigital/Multisoft/Supersoft
+
+PARA CARREGAR USE LOADT
+
+Instruções
+Após a carga do programa, digite o nome do jogador da 
+esquerda e pressione <RETURN>; em seguida, digite o nome do jogador da direita e pressione <RETURN>
+
+Para iniciar o jogo, pressione qualquer tecla.
+Durante o jogo  são utilizadas as seguintes teclas:
+
+JOGADOR DA	JOGADOR DA	MOVIMENTO
+ESQUERDA	DIREITA		
+
+<W>		<P>		para cima
+<Z>		<.>		para baixo
+<S>		<;>		para a direita
+<A>		<L>		para a esquerda
+
+Ao final do jogo o computador informa quem venceu
+(WIN)

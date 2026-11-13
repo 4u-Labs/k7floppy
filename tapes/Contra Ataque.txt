@@ -1,0 +1,20 @@
+Contra Ataque (SoftKristian) / Sabotagem (Microsoft)
+Seu grande objetivo é manter a independência de sua base militar, não deixando ocorrer um invasão por terra ou deixar que os terríveis caça-bombardeiros lhe joguem bombas. Contra ataque!
+Instruções
+O próprio jogo apresenta as instruções.
+Como carregar:
+Dê o comando LM <RETURN>
+Depois: R <RETURN>
+Aperte PLAY e aguarde.
+Aparecerá: CONTRA 40 40 WAIT OK
+Tecle: 7680G <RETURN>
+O jogo iniciará automaticamente.
+
+~~~
+Contra Ataque
+=====Para carregar digite:
+
+LOADT   <RETURN>
+
+Programa em LM.
+7625G

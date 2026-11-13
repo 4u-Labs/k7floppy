@@ -1,0 +1,4 @@
+BUG ATTACK (SoftKristian)
+Para carregar use LOADT
+Aperte "K" para iniciar
+Use as setas e FIRE, ou o Joystick, para jogar.

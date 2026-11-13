@@ -1,0 +1,18 @@
+Thanks to	
+	Fábio Belavenuto for wav2ct2 & C++EMULATOR
+	Gabriel Velo for JAVA EMULATOR
+	
+
+
+Credits (in no particular order) for the games/app/basic(homeware) to:
+
+	Alexandre Fabri
+	Claudio Moises Ferreira Gomes 
+	Eduardo Luccas
+	Fábio Belavenuto
+	Flávio Haguen
+	Georg Bahr Julião
+	Leonardo R. da Rosa (from http://www.datacassete.com.br/jogos/material/TK2000/123.html)
+	Marcelo Thielo
+	Marcio Yutaka Abe
+	Pablo Rozados 

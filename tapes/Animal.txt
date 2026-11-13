@@ -1,0 +1,9 @@
+ANIMAL
+Para carregar digite:
+
+LOADT   <RETURN>
+RUN     <RETURN>
+
+Programa em BASIC.
+Tente acertar o Animal.
+O TK2000 "aprende" novos amimais de acordo com os dados fornecidos pelo usuário, simulando Inteligencia Artificial.

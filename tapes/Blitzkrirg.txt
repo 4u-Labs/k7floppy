@@ -1,0 +1,32 @@
+BlitzKrieg
+Após a carga do programa, pressione a tecla <M> ou a 
+tecla <K>.
+
+Pressionando a tecla <M>, você poderá escolher a 
+velocidade do jogo, a cor de fundo do quadro do jogo e 
+o número de bombas das quais disporá.
+
+Digite um número dentre 0 e 9, para selecionar a 
+velocidade. Quanto maior o número, mais alta a
+velocidade.
+
+A seguir, pressione a tecla <B>, para obter a cor preta 
+ou a tecla <W>, para obter a cor branca.
+
+E depois, digite um número dentre 0 e 3, para 
+selecionar a quantidade de bombas.
+
+Pressionando a tecla <K>, você obterá a tela do 
+jogo, para iniciá-lo, pressione qualquer tecla.
+
+Durante o jogo você usará as seguintes teclas:
+(<-)(->)	- para posicionar seu canhão
+<FIRE>		- para fazer disparos
+
+===
+Para carregar digite:
+
+LOADT   <RETURN>
+
+
+Canhão com tiro balístico

@@ -1,0 +1,4 @@
+Chopfliter
+Para carregar digite:
+
+LOADT   <RETURN>

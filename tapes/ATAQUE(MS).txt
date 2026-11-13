@@ -1,0 +1,9 @@
+ATAQUE(Microsoft)
+Emocionante jogo onde você deve combater os invasores alienígenas, que tentam destruí-lo. Todo cuidado é pouco, pois, com graciosas evoluções elas praticam ataques suicidas para destruir sua nave. A esmagadora maioria numérica dos inimigos exige muita perícia para vencer.
+As naves-mãe, quando atingidas, possibilitam um maior número do pontos para você. A cada fase completada o nível de dificuldade aumenta.
+São fornecidas três naves para o combate. A cada três mil pontos completados, você receberá uma nave extra como bônus.
+---
+Para carregar digite:
+LOADT   <RETURN>
+Tecla Q Para jogar
+Use as setas e FIRE (ou Joystic)

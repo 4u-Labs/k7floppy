@@ -1,0 +1,7 @@
+BARAO VERMELHO
+
+Para carregar digite:
+LOADT   <RETURN>
+RUN     <RETURN>
+
+Jogo em BASIC, Digitado de Revista.

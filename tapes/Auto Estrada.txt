@@ -1,0 +1,33 @@
+AUTO-ESTRADA (MicroSoft)/ CORRIDA MALUCA (SoftKristian) /(Autobahn)
+Você foi assistir um Grand Prix e conseguiu "tomar emprestado" um daqueles maravilhosos carros; para não atrapalhar a corrida, foi testar seus reflexos em uma auto-estrada.
+Cuidado! Você será incomodado por "domingueiros", manchas de óleo, carros de bombeiro e outros perigos mais.
+Aproximando-se do acostamento, a velocidade de seu carro diminuirá, ocasionando rodopios. O painel de instrumentos, com velocímetro e odômetro o auxiliará a pilotar.
+Ao iniciar a partida, você possui três chances de colisão. Veja no painel a quantidade de chances disponível.
+Para carregar digite:
+
+LOADT   <RETURN>
+Use as setas direita e esquerda para virar o volante. A tecla <FIRE> anula as anteriores.
+
+---
+CORRIDA MALUCA (SoftKristian)
+Nesta louca corrida aonde participam todos os tipos de carros, inclusive terríveis bombeiros, tentando lhe destruir, sua prova é vencer esta corrida com seu F1-SUPER. Boa Sorte!
+Instruções
+Você dispõe de três vidas paar competir.
+
+Use as setas direita e esquerda para virar o volante. A tecla "Q" anula as anteriores. Para mudar a velocidade do carro escolha:
+1 - 120km/h
+2 - 160km/h
+3 - 200km/h
+
+Como Carregar:
+Dê o comando LM <RETURN>
+Depois: R <RETURN>
+Aperte PLAY e aguarde.
+Aparecerá: MALUCA 51 51 WAIT OK
+Tecle: 9060G <RETURN>
+O jogo entrará automáticamente.
+Tecle <RETURN> para iniciar
+---
+
+Programa em LM.
+9060G

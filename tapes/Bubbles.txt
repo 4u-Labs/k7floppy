@@ -1,0 +1,6 @@
+Para carregar use LOADT
+
+Para rotacionar:
+Setas
+Para Atirar:
+FIRE

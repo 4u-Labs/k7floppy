@@ -1,0 +1,17 @@
+BATALHA NAVALInstruções:
+Para carregar use LOADT <RETURN>
+O próprio programa apresenta as instruções.
+
+~~~
+Esconda 
+5 HIDRO-AVIÕES:	 
+		H H
+		 H
+4 SUBMARINOS:
+		S
+3 DESTROYERS:
+		DD
+2 CRUZADORES:
+		CCCC
+1 COURACADO:
+		QQQQQ

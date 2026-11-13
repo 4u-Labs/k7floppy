@@ -1,0 +1,9 @@
+CT2 Completo com:
+  Software; 
+2 Demos;
+2 Figuras.
+
+---
+GRAPHS 2000 Cibertron
+Simplifica extremamente a criação  de figuras e caracteres, utilizando a alta resolução gráfica a cores de seu TK2000, reduzindo a duas regras simples todo o processo. Oferece total flexibilidade, monitoração imediata, opção para gravação do desenho em fita, e recuperação dos códigos em deciaml e hexadecimal.
+Acompanha manual detalhado e com exemplos práticos.

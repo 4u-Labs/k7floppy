@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K7 &amp; Floppy — Emulador Microdigital TK 2000 II &amp; Apple II+ (6502) | 4u-Labs</title>
+  <meta name="description" content="Bancada retrô real no navegador: alterne entre Microdigital TK 2000 II (gravador K7 com 110+ fitas .CT2 e CompatBoot) e Apple II+ (drive Disk II com 50 disquetes .DSK), manuais interativos e BASIC. Grátis, bilíngue e 100% client-side." />
+  <meta name="keywords" content="K7 &amp; Floppy, TK 2000, Microdigital TK2000 II, Apple II+, emulador Apple II online, emulador TK 2000 online, fita K7 .CT2, disquete .DSK, Disk II, Data Recorder, CPU 6502, Karateka, Choplifter, Lode Runner, 4u-Labs" />
+  <meta name="author" content="Fabiano Braga // 4u-Labs (4U.IA.BR)" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#120d0a" />
+  <link rel="canonical" href="https://4u.ia.br/app/k7floppy/" />
+  <link rel="alternate" hreflang="pt-BR" href="https://4u.ia.br/app/k7floppy/" />
+  <link rel="alternate" hreflang="en" href="https://4u.ia.br/app/k7floppy/" />
+  <link rel="alternate" hreflang="x-default" href="https://4u.ia.br/app/k7floppy/" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="4U.IA.BR // 4u-Labs" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:title" content="K7 &amp; Floppy — Emulador Real TK 2000 II &amp; Apple II+ no Navegador" />
+  <meta property="og:description" content="Reviva os anos 80 na mesa retrô: gravador K7 com 110+ fitas e drive Disk II 5¼&quot; com 50 disquetes .DSK, CPU 6502 real, monitor CRT e manuais BASIC PT/EN." />
+  <meta property="og:url" content="https://4u.ia.br/app/k7floppy/" />
+  <meta property="og:image" content="https://4u.ia.br/app/k7floppy/og-banner.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="K7 &amp; Floppy — Mesa retrô Microdigital TK 2000 II e Apple II+ com fitas K7 e disquetes 5¼&quot;" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="K7 &amp; Floppy — TK 2000 II &amp; Apple II+ Retro Desk (6502)" />
+  <meta name="twitter:description" content="Emulador dual de TK 2000 II e Apple II+ direto no navegador: fitas .CT2, disquetes .DSK, monitor CRT P31/Color, Joystick e manuais BASIC." />
+  <meta name="twitter:image" content="https://4u.ia.br/app/k7floppy/og-banner.webp" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "K7 & Floppy",
+      "alternateName": ["K7 & Floppy Retro Desk", "TK 2000 II & Apple II+ Emulator"],
+      "url": "https://4u.ia.br/app/k7floppy/",
+      "image": "https://4u.ia.br/app/k7floppy/og-banner.webp",
+      "screenshot": "https://4u.ia.br/app/k7floppy/og-banner.webp",
+      "description": "Emulador fiel de CPU 6502 no navegador reunindo o Microdigital TK 2000 II (gravador K7 e fitas .CT2/.DSK) e o Apple II+ (drive Disk II 5.25\" e disquetes .DSK/.DO/.PO), com 160+ jogos clássicos, BASIC e manuais interativos PT/EN.",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web Browser, Windows, macOS, Linux, Android, iOS",
+      "browserRequirements": "Requires HTML5 Canvas, Web Audio API and ES Modules",
+      "softwareVersion": "1.0.0",
+      "isAccessibleForFree": true,
+      "inLanguage": ["pt-BR", "en"],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "4u-Labs",
+        "url": "https://4u.ia.br/"
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="lamp-on machine-tk2000">
+  <div class="room-backdrop">
+    <!-- Barra superior com controles rápidos -->
+    <header class="topbar">
+      <div class="topbar-brand">
+        <span class="dot-led"></span>
+        <strong id="brand-title">K7 &amp; Floppy • TK 2000 II</strong>
+        <span class="badge" id="engine-badge">CPU 6502 • ROM REAL 16K</span>
+      </div>
+      <div class="machine-switcher" role="group" aria-label="Alternar computador">
+        <button id="btn-mode-tk2000" class="machine-switch-btn active" title="Usar Microdigital TK 2000 II (Gravador K7 e fitas)">
+          🖥️ TK 2000 II
+        </button>
+        <button id="btn-mode-apple2" class="machine-switch-btn" title="Usar Apple II+ (Drive Disk II e disquetes .DSK)">
+          🍎 Apple II+
+        </button>
+      </div>
+      <div class="topbar-actions">
+        <button id="btn-lamp" class="pill-btn" title="Alternar luminária da mesa">
+          💡 Luminária: <span id="lamp-state">Acesa</span>
+        </button>
+        <button id="btn-turbo" class="pill-btn active" title="Acelerar CPU durante leitura de fita K7">
+          ⚡ Turbo K7: <span id="turbo-state">ON</span>
+        </button>
+        <button id="btn-scanlines" class="pill-btn active" title="Ativar/Desativar scanlines de tubo CRT">
+          〰 Scanlines: <span id="scanlines-state">ON</span>
+        </button>
+        <button id="btn-crt-mode" class="pill-btn" title="Alternar modo do monitor CRT">
+          📺 Monitor: <span id="crt-mode-label">Colorido</span>
+        </button>
+        <button id="btn-mute" class="pill-btn active" title="Ligar/Desligar som">
+          🔊 Som: <span id="mute-state">ON</span>
+        </button>
+        <button id="btn-catalog" class="pill-btn catalog-top-btn" title="Abrir gaveta visual com todas as fitas e disquetes">
+          🗂️ <span id="btn-catalog-label">Catálogo</span>
+        </button>
+        <button id="btn-manual" class="pill-btn accent" title="Abrir manual do computador atual">
+          📖 Manual &amp; Jogos
+        </button>
+        <button id="btn-lang" class="pill-btn" title="Alternar idioma PT / EN">
+          🌐 <span id="lang-state">PT</span>
+        </button>
+        <button id="btn-4ulabs" class="pill-btn" title="Aplicativos, suporte e comunidade — 4u-Labs">
+          🚀 4u-Labs
+        </button>
+      </div>
+    </header>
+
+    <!-- Cena frontal da escrivaninha -->
+    <main class="desk-stage">
+      <div class="desk-surface" id="drop-zone">
+        <!-- Coluna Esquerda: Luminária + Gravador K7 Real (.CT2/.WAV + Gravação) -->
+        <aside class="peripheral-col left-col">
+          <div id="desk-lamp" class="desk-lamp" title="Clique para acender/apagar a luminária">
+            <div class="lamp-arm"></div>
+            <div class="lamp-shade">
+              <div class="lamp-bulb"></div>
+            </div>
+            <div class="lamp-cone"></div>
+          </div>
+
+          <!-- Gravador de Fita K7 -->
+          <section class="cassette-deck" id="cassette-deck" aria-label="Gravador de Fita K7">
+            <div class="deck-header">
+              <span class="deck-brand">DATA RECORDER K7</span>
+              <div class="deck-telemetry">
+                <span class="tape-counter" id="tape-counter">000</span>
+                <span id="tape-led" class="mini-led" title="LED Play / Rec"></span>
+              </div>
+            </div>
+            <div id="tape-window" class="tape-window">
+              <div id="inserted-tape-visual" class="inserted-tape empty">
+                <div class="tape-label-strip" id="inserted-tape-title">SEM FITA — ARRASTE .CT2/.WAV</div>
+                <div class="tape-reels">
+                  <div class="reel" id="reel-left"><span></span></div>
+                  <div class="tape-window-center"></div>
+                  <div class="reel" id="reel-right"><span></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="deck-controls four-btns">
+              <button id="btn-tape-play" class="mech-btn" title="Dar PLAY na fita K7">▶ PLAY</button>
+              <button id="btn-tape-rec" class="mech-btn rec" title="Armar gravação (use SAVE T &quot;NOME&quot;)">● REC</button>
+              <button id="btn-tape-rew" class="mech-btn" title="Rebobinar fita até 000">⏮ REW</button>
+              <button id="btn-tape-stop" class="mech-btn" title="Parar / Salvar gravação / Ejetar">■ STOP</button>
+            </div>
+            <div class="deck-file-actions">
+              <label class="file-upload-btn" title="Carregar arquivo .CT2 ou .WAV original do seu computador">
+                📂 Abrir .CT2 / .WAV
+                <input type="file" id="tape-file-input" accept=".ct2,.wav,.CT2,.WAV" hidden />
+              </label>
+              <button id="btn-autoload-tape" class="autoload-btn" title="Digita LOAD T automaticamente e aperta PLAY">
+                ⚡ Auto-Load
+              </button>
+            </div>
+          </section>
+
+          <!-- Pilha de Fitas K7 (Reais .CT2 + Gravadas pelo Usuário) -->
+          <section class="media-rack" id="tape-rack-section">
+            <div class="rack-header-row">
+              <div class="rack-title" id="tape-rack-title">FITAS K7 TK 2000</div>
+              <div class="rack-header-actions">
+                <span class="rack-count-badge" id="tape-count-badge">110</span>
+                <button type="button" id="btn-open-tape-catalog" class="rack-catalog-btn" title="Abrir Gaveta Visual de Fitas K7 em tela cheia">🗂️ Gaveta</button>
+                <a href="https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/tk2000.zip" target="_blank" rel="noopener noreferrer" class="rack-zip-link" title="Baixar pacote completo tk2000.zip (1,5 MB) hospedado no GitHub Releases">⬇ ZIP</a>
+              </div>
+            </div>
+            <div class="rack-filter-bar">
+              <input type="search" id="tape-search-input" class="rack-search-input" placeholder="🔍 Buscar fita ou jogo..." autocomplete="off" />
+              <div class="rack-pills" id="tape-filter-pills">
+                <button type="button" class="rack-pill active" data-cat="all">Todos</button>
+                <button type="button" class="rack-pill" data-cat="featured">⭐ Top</button>
+                <button type="button" class="rack-pill" data-cat="arcade">🕹️ Ação</button>
+                <button type="button" class="rack-pill" data-cat="ct2">📼 .CT2</button>
+                <button type="button" class="rack-pill" data-cat="apps">🧰 BASIC</button>
+              </div>
+            </div>
+            <div id="tape-rack" class="tape-rack"></div>
+          </section>
+
+          <!-- Drive de Disquete 5¼" (.DSK Apple II) — ocupa o lado esquerdo no modo Apple II+, igual ao gravador K7 no TK 2000 -->
+          <section class="floppy-drive" id="floppy-drive-section" aria-label="Drive de Disquete 5.25">
+            <div class="drive-header">
+              <span class="drive-brand">DISK II • 5¼" (.DSK / ARCADE)</span>
+              <span id="drive-led" class="drive-led"></span>
+            </div>
+            <div class="drive-faceplate">
+              <div id="drive-slot" class="drive-slot">
+                <div id="inserted-disk-edge" class="inserted-disk-edge"></div>
+              </div>
+              <button id="drive-latch" class="drive-latch open" title="Clique para ejetar disquete"></button>
+            </div>
+            <div class="drive-status-text" id="drive-status-text">DRIVE VAZIO — CLIQUE EM UM DISCO</div>
+            <div class="drive-file-actions">
+              <label class="file-upload-btn" title="Abrir ou arrastar disquete .DSK / .DO / .PO (Apple II)">
+                📂 Abrir .DSK
+                <input type="file" id="dsk-file-input" accept=".dsk,.do,.po,.DSK,.DO,.PO" hidden />
+              </label>
+              <label class="file-upload-btn rom-btn" title="Opcional: carregar ROM Apple II+ (.rom/.bin) para discos que usam Applesoft/Monitor completo">
+                🔑 ROM II+
+                <input type="file" id="a2rom-file-input" accept=".rom,.bin,.ROM,.BIN" hidden />
+              </label>
+            </div>
+            <div class="drive-rom-status" id="a2-rom-status">Apple II: Monitor Nativo (sem ROM II+)</div>
+          </section>
+
+          <!-- Pilha de Disquetes 5¼" Apple II -->
+          <section class="media-rack" id="floppy-rack-section">
+            <div class="rack-header-row">
+              <div class="rack-title" id="floppy-rack-title">DISQUETES 5¼" APPLE II</div>
+              <div class="rack-header-actions">
+                <span class="rack-count-badge" id="floppy-count-badge">50</span>
+                <button type="button" id="btn-open-floppy-catalog" class="rack-catalog-btn" title="Abrir Caixa Visual de Disquetes 5¼&quot; em tela cheia">🗂️ Caixa</button>
+                <a href="https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/appleii.zip" target="_blank" rel="noopener noreferrer" class="rack-zip-link" title="Baixar pacote completo appleii.zip (2,1 MB) hospedado no GitHub Releases">⬇ ZIP</a>
+              </div>
+            </div>
+            <div class="rack-filter-bar">
+              <input type="search" id="floppy-search-input" class="rack-search-input" placeholder="🔍 Buscar disquete..." autocomplete="off" />
+              <div class="rack-pills" id="floppy-filter-pills">
+                <button type="button" class="rack-pill active" data-cat="all">Todos</button>
+                <button type="button" class="rack-pill" data-cat="classic">⭐ Clássicos</button>
+                <button type="button" class="rack-pill" data-cat="arcade">🕹️ Arcade</button>
+                <button type="button" class="rack-pill" data-cat="adventure">🏰 Aventura</button>
+                <button type="button" class="rack-pill" data-cat="pack">📦 Packs</button>
+              </div>
+            </div>
+            <div id="floppy-rack" class="floppy-rack"></div>
+          </section>
+        </aside>
+
+        <!-- Coluna Central: Monitor CRT Philips + Microdigital TK 2000 II Frontal -->
+        <section class="center-station">
+          <div class="crt-monitor" id="crt-monitor">
+            <div class="crt-bezel">
+              <div class="crt-screen-frame">
+                <canvas id="crt-canvas" width="280" height="192"></canvas>
+                <div class="crt-scanlines" id="crt-scanlines"></div>
+                <div class="crt-glass"></div>
+              </div>
+              <div class="crt-controls-bar">
+                <span class="crt-brand" id="crt-brand-label">PHILIPS // COLOR MONITOR 80</span>
+                <div class="crt-knobs">
+                  <button id="btn-monitor-mode" class="crt-switch" title="Alternar cor / fósforo verde / âmbar">COR/P31</button>
+                  <button id="btn-power" class="crt-power-btn on" title="Ligar / Desligar TK 2000">
+                    <span class="power-led" id="power-led"></span>
+                    POWER
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="crt-stand"></div>
+          </div>
+
+          <!-- Microdigital TK 2000 II -->
+          <div class="tk2000-unit">
+            <div class="tk-top-deck">
+              <div class="tk-vent"></div>
+              <div class="tk-nameplate">
+                <span class="tk-apple-rainbow" aria-hidden="true"></span>
+                <span class="tk-logo" id="chassis-logo">MICRODIGITAL</span>
+                <span class="tk-model" id="chassis-model">TK 2000 II</span>
+                <span class="tk-sub" id="chassis-sub">COLOR COMPUTER • 64K</span>
+              </div>
+              <div class="tk-status-right">
+                <span class="tk-power-indicator">
+                  <span class="tk-led on" id="tk-led"></span> ON
+                </span>
+                <button id="btn-reset" class="tk-reset-btn" title="Warm Reset (ou Shift+Clique para Hard Reset)">RESET</button>
+              </div>
+            </div>
+            <div class="tk-keywell">
+              <div id="tk-keyboard" class="tk-keyboard" aria-label="Teclado TK 2000 II"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Coluna Direita: Joystick Toggle + Manuais -->
+        <aside class="peripheral-col right-col">
+          <!-- Seletor de Joystick / Teclado -->
+          <section class="joystick-box">
+            <div class="drive-header">
+              <span class="drive-brand">JOYSTICK / PADDLE</span>
+              <span id="joy-led" class="mini-led"></span>
+            </div>
+            <button id="btn-joystick-mode" class="joy-toggle-btn" title="Mapear Setas + Espaço para a porta Joystick ($C064/$C061) usado por jogos como Karateka">
+              🕹️ Setas: <strong id="joy-mode-label">Teclado TK</strong>
+            </button>
+            <small class="joy-hint">Ative para jogos com Joystick (ex: Karateka)</small>
+            <div class="keys-help" id="keys-help" aria-live="polite"></div>
+          </section>
+
+          <!-- Manual espiralado clicável -->
+          <button id="desk-manual" class="desk-manual tk-only" title="Abrir Manual do TK 2000">
+            <div class="manual-spiral"></div>
+            <div class="manual-cover">
+              <span class="manual-mini">MICRODIGITAL</span>
+              <strong>MANUAL TK 2000</strong>
+              <small>Operação, SAVE T &amp; Jogos .CT2</small>
+            </div>
+          </button>
+
+          <!-- Manual do BASIC TK 2000 logo abaixo -->
+          <button id="desk-basic-manual" class="desk-manual basic-booklet tk-only" title="Abrir Manual de Comandos BASIC do TK 2000">
+            <div class="manual-spiral"></div>
+            <div class="manual-cover">
+              <span class="manual-mini">MICRODIGITAL • 1984</span>
+              <strong>MANUAL BASIC TK 2000</strong>
+              <small>Comandos, HGR, SOUND &amp; Funções</small>
+            </div>
+          </button>
+
+          <!-- Manuais do Apple II+ (visíveis no modo Apple II+) -->
+          <button id="desk-a2-manual" class="desk-manual a2-only" title="Abrir Manual do Apple II+">
+            <div class="manual-spiral"></div>
+            <div class="manual-cover">
+              <span class="manual-mini">APPLE COMPUTER</span>
+              <strong>MANUAL APPLE II+</strong>
+              <small>Disk II, PR#6, DOS 3.3 &amp; Jogos</small>
+            </div>
+          </button>
+
+          <button id="desk-a2-basic-manual" class="desk-manual basic-booklet a2-only" title="Abrir Manual Applesoft BASIC">
+            <div class="manual-spiral"></div>
+            <div class="manual-cover">
+              <span class="manual-mini">APPLESOFT • 1979</span>
+              <strong>MANUAL APPLESOFT BASIC</strong>
+              <small>Comandos, GR, HGR, PEEK/POKE</small>
+            </div>
+          </button>
+        </aside>
+      </div>
+    </main>
+
+    <!-- Rodapé Discreto com os 14 Links Oficiais 4u-Labs -->
+    <footer class="eco-footer">
+      <div>
+        <strong>K7 &amp; Floppy 1.0</strong> · 4u-Labs · © <span id="eco-year">2026</span>
+      </div>
+      <nav class="eco-footer-links" aria-label="Ecossistema 4u-Labs">
+        <a href="https://4u.ia.br/" target="_blank" rel="noopener noreferrer">Portal 4U</a>
+        <a href="https://4u.ia.br/loja/index.php" target="_blank" rel="noopener noreferrer">Loja de Apps</a>
+        <a href="https://4u.ia.br/suporte.html" target="_blank" rel="noopener noreferrer">Central de Ajuda</a>
+        <a href="https://4u.ia.br/sobre.html" target="_blank" rel="noopener noreferrer">Sobre 4U</a>
+        <a href="https://4u.ia.br/termos.html" target="_blank" rel="noopener noreferrer">Termos</a>
+        <a href="https://4u.ia.br/politica.html" target="_blank" rel="noopener noreferrer">Privacidade</a>
+        <a href="https://github.com/4u-Labs" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://4u-labs.github.io/" target="_blank" rel="noopener noreferrer">Blog Dev</a>
+        <a href="https://alternativeto.net/user/4u-ia-br/added/" target="_blank" rel="noopener noreferrer">AlternativeTo</a>
+        <a href="https://www.youtube.com/@fbr4g4" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a href="https://www.instagram.com/fbr4g4/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/fbr4g4/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://x.com/fbr4g4" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+        <a href="https://www.linkedin.com/in/fbr4g4/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </nav>
+    </footer>
+  </div>
+
+  <!-- Modal do Manual -->
+  <div id="manual-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="manual-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="manual-title">📖 Manual Oficial — Microdigital TK 2000 II (Emulador Real 6502)</h2>
+        <button id="btn-close-manual" class="modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="manual-grid">
+          <div>
+            <h3>🧠 Programando em TK-BASIC (ROM Real)</h3>
+            <ul>
+              <li>Você está na <strong>ROM original de 16KB em Português</strong> do TK 2000!</li>
+              <li><strong>Gráficos Hi-Res:</strong> <code>10 HGR : HCOLOR= 3 : HPLOT 0,0 TO 279,191</code></li>
+              <li><strong>Som no alto-falante:</strong> <code>SOUND 20, 15</code> (nota 1–60, duração)</li>
+              <li><strong>Monitor / Assembly:</strong> <code>CALL -151</code> (ou <code>@</code> conforme ROM)</li>
+              <li><strong>Interromper programa:</strong> <code>CTRL + C</code></li>
+            </ul>
+
+            <h3>💾 Gravando seus Programas em Fita K7!</h3>
+            <ol>
+              <li>Escreva seu programa em BASIC (ex: <code>10 PRINT "OI"</code>).</li>
+              <li>Clique em <strong>● REC</strong> no gravador K7 à esquerda e dê um nome (ex: <code>MEU</code>).</li>
+              <li>Digite no TK 2000: <code>SAVE T "MEU"</code> e aperte <code>ENTER</code>.</li>
+              <li>Quando voltar o prompt <code>]</code>, clique em <strong>■ STOP</strong> no gravador.</li>
+              <li>Sua fita fica salva no navegador (e você pode baixar o arquivo <code>.CT2</code>)!</li>
+              <li>Para carregar depois: clique na fita, digite <code>LOAD T "MEU"</code> + <code>ENTER</code> e depois aperte <strong>▶ PLAY</strong> (ou use <strong>⚡ Auto-Load</strong>).</li>
+            </ol>
+          </div>
+          <div>
+            <h3>🕹️ Rodando Jogos Originais (Karateka, Choplifter, etc.)</h3>
+            <ul>
+              <li>O emulador roda CPU 6502 real e lê fitas originais nos formatos <strong><code>.CT2</code></strong> e <strong><code>.WAV</code></strong>.</li>
+              <li>Por direitos autorais, jogos comerciais da época (como <em>Karateka</em> da PlanSoft/Brøderbund) não vêm pré-embutidos, mas você pode baixar o <code>.CT2</code> ou <code>.WAV</code> em acervos de preservação (como <em>Datassette</em>, <em>OldPlayers</em> ou <em>Internet Archive</em>) e <strong>arrastar direto para o gravador K7</strong> ou clicar em <strong>📂 Abrir .CT2 / .WAV</strong>!</li>
+              <li><strong>Dica para o Karateka:</strong> após carregar a fita (com <code>LOAD T</code> ou <code>LOAD A</code> + <strong>▶ PLAY</strong>), ligue a chave <strong>🕹️ Joystick ($C064)</strong> à direita se quiser jogar com as Setas + Espaço!</li>
+              <li><strong>Fitas K7 já prontas no rack:</strong> clique em <em>Arte HGR</em>, <em>Adivinhe</em>, <em>Piano TK</em> ou <em>Labirinto HGR</em> e clique em <strong>⚡ Auto-Load</strong> — você pode dar <code>LIST</code> para ver e editar o código BASIC real!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal do Manual BASIC TK 2000 -->
+  <div id="basic-manual-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="basic-manual-title">
+    <div class="modal-card basic-modal-card">
+      <div class="modal-header basic-modal-header">
+        <h2 id="basic-manual-title">📘 Manual do BASIC — Microdigital TK 2000 II (Referência da ROM)</h2>
+        <button id="btn-close-basic-manual" class="modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="basic-search-bar">
+          <input type="search" id="basic-search" placeholder="🔎 Filtrar comando ou palavra-chave (ex: HGR, SOUND, SAVE, PDL, MID$...)" autocomplete="off" />
+        </div>
+        <div class="manual-grid basic-manual-grid" id="basic-manual-content">
+          <section class="basic-sec">
+            <h3>1. Edição, Execução &amp; Sistema</h3>
+            <ul>
+              <li><code>NEW</code> — Apaga o programa atual da memória.</li>
+              <li><code>LIST</code> / <code>LIST 10,50</code> — Lista todas as linhas ou de 10 a 50.</li>
+              <li><code>RUN</code> / <code>RUN 100</code> — Executa o programa (ou a partir da linha 100).</li>
+              <li><code>CONT</code> — Continua execução após <code>STOP</code> ou <code>CTRL+C</code>.</li>
+              <li><code>DEL 10,30</code> — Apaga linhas de 10 até 30.</li>
+              <li><code>CLEAR</code> — Zera todas as variáveis e arrays.</li>
+              <li><code>REM texto</code> — Comentário ignorado na execução.</li>
+              <li><code>STOP</code> / <code>END</code> — Encerra ou pausa o programa.</li>
+              <li><code>CALL -151</code> — Entra no Monitor (Linguagem de Máquina).</li>
+              <li><code>ASS</code> — Entra no Mini-Assembler da ROM.</li>
+              <li><code>FRE(0)</code> — Mostra a quantidade de memória RAM livre.</li>
+            </ul>
+          </section>
+
+          <section class="basic-sec">
+            <h3>2. Entrada, Saída &amp; Texto</h3>
+            <ul>
+              <li><code>HOME</code> — Limpa a tela e posiciona o cursor no topo.</li>
+              <li><code>PRINT expr</code> (ou <code>?</code>) — Imprime texto/números; use <code>;</code> para continuar na mesma linha.</li>
+              <li><code>INPUT "NOME:"; A$</code> — Lê texto ou número com <code>ENTER</code>.</li>
+              <li><code>GET A$</code> — Lê 1 tecla pressionada imediatamente (sem <code>ENTER</code>).</li>
+              <li><code>HTAB 1..40</code> / <code>VTAB 1..24</code> — Move cursor para coluna/linha.</li>
+              <li><code>TAB(n)</code> / <code>SPC(n)</code> — Tabulação ou <em>n</em> espaços no <code>PRINT</code>.</li>
+              <li><code>INVERSE</code> / <code>NORMAL</code> — Texto invertido (fundo claro) ou normal.</li>
+              <li><code>TEXT</code> — Retorna do modo gráfico para o modo texto.</li>
+              <li><code>SPEED= 0..255</code> — Controla velocidade de impressão na tela.</li>
+              <li><code>POS(0)</code> — Coluna atual do cursor.</li>
+            </ul>
+          </section>
+
+          <section class="basic-sec">
+            <h3>3. Gráficos Hi-Res (280×192) &amp; Formas</h3>
+            <ul>
+              <li><code>HGR</code> / <code>HGR2</code> — Ativa tela gráfica Hi-Res (página 1 ou 2).</li>
+              <li><code>HCOLOR= 0..7</code> — Define cor de desenho (0=Preto, 1=Verde, 2=Violeta, 3=Branco, 5=Laranja, 6=Azul).</li>
+              <li><code>HPLOT X,Y</code> — Plota um ponto em (X,Y), X=0..279, Y=0..191.</li>
+              <li><code>HPLOT X1,Y1 TO X2,Y2</code> — Traça linha contínua (pode encadear vários <code>TO</code>).</li>
+              <li><code>DRAW n AT X,Y</code> / <code>XDRAW n AT X,Y</code> — Desenha shape <em>n</em> (ou XOR para apagar/animar).</li>
+              <li><code>ROT= 0..63</code> / <code>SCALE= 1..255</code> — Rotação e escala dos shapes.</li>
+              <li><code>GR</code> / <code>COLOR=</code> / <code>PLOT</code> / <code>HLIN</code> / <code>VLIN</code> — Comandos gráficos herdados na tabela de tokens.</li>
+            </ul>
+          </section>
+
+          <section class="basic-sec">
+            <h3>4. Som &amp; Fita K7 (Exclusivos TK 2000)</h3>
+            <ul>
+              <li><code>SOUND nota, dur</code> — Toca nota no alto-falante interno (ex.: <code>SOUND 20, 15</code>).</li>
+              <li><code>SAVE T "NOME"</code> — Grava o programa BASIC em fita K7 com nome (clique ● REC antes).</li>
+              <li><code>LOAD T "NOME"</code> — Carrega programa nomeado da fita K7 (ou <code>LOAD T</code> para o próximo).</li>
+              <li><code>SAVE A</code> / <code>LOAD A</code> — Grava/lê fita no formato Apple II sem cabeçalho de nome.</li>
+              <li><code>LM</code> — Carrega código de máquina da fita.</li>
+              <li><code>MOTOR</code> / <code>SHLOAD</code> — Controle do motor do K7 / carga de tabela de shapes.</li>
+            </ul>
+          </section>
+
+          <section class="basic-sec">
+            <h3>5. Controle de Fluxo, Laços &amp; Dados</h3>
+            <ul>
+              <li><code>LET X = 10</code> (ou <code>X = 10</code>) — Atribui valor a uma variável.</li>
+              <li><code>IF cond THEN cmd</code> — Execução condicional (<code>=</code>, <code>&lt;&gt;</code>, <code>&lt;</code>, <code>&gt;</code>, <code>AND</code>, <code>OR</code>, <code>NOT</code>).</li>
+              <li><code>GOTO 100</code> — Salta diretamente para a linha 100.</li>
+              <li><code>GOSUB 500</code> / <code>RETURN</code> — Chama sub-rotina e retorna.</li>
+              <li><code>POP</code> — Descarta o último endereço de retorno do <code>GOSUB</code>.</li>
+              <li><code>FOR I=1 TO 10 STEP 2</code> ... <code>NEXT I</code> — Laço de repetição.</li>
+              <li><code>ON X GOTO 10,20,30</code> / <code>ON X GOSUB ...</code> — Desvio múltiplo por índice.</li>
+              <li><code>DIM A(10,10)</code> — Dimensiona vetores/matrizes.</li>
+              <li><code>DATA ...</code> / <code>READ X</code> / <code>RESTORE</code> — Lê dados embutidos no código.</li>
+              <li><code>ONERR GOTO 900</code> / <code>RESUME</code> — Tratamento de erros em execução.</li>
+            </ul>
+          </section>
+
+          <section class="basic-sec">
+            <h3>6. Funções, Hardware &amp; Erros da ROM</h3>
+            <ul>
+              <li><strong>Matemática:</strong> <code>ABS</code>, <code>INT</code>, <code>SGN</code>, <code>SQR</code>, <code>RND(1)</code>, <code>SIN</code>, <code>COS</code>, <code>TAN</code>, <code>ATN</code>, <code>LOG</code>, <code>EXP</code>, <code>DEF FN</code>.</li>
+              <li><strong>Texto (Strings):</strong> <code>LEN(S$)</code>, <code>LEFT$(S$,n)</code>, <code>RIGHT$(S$,n)</code>, <code>MID$(S$,i,n)</code>, <code>ASC(S$)</code>, <code>CHR$(n)</code>, <code>STR$(n)</code>, <code>VAL(S$)</code>.</li>
+              <li><strong>Memória &amp; Joystick:</strong> <code>PEEK(e)</code>, <code>POKE e,v</code>, <code>PDL(0)</code> (eixo X), <code>PDL(1)</code> (eixo Y), <code>PEEK(49249)&gt;127</code> (botão fire).</li>
+              <li><strong>Erros da ROM:</strong> <code>SINTAXE ERRO</code>, <code>VALOR ILEGAL</code>, <code>DIVISAO POR ZERO</code>, <code>NEXT SEM FOR</code>, <code>RETURN SEM GOSUB</code>, <code>INDICE ILEGAL</code>, <code>ESTOURO</code>, <code>EXCEDE MEMORIA</code>.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal do Manual Apple II+ -->
+  <div id="a2-manual-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="a2-manual-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="a2-manual-title">🍎 Manual de Operação — Apple II+ &amp; Disk II</h2>
+        <button id="btn-close-a2-manual" class="modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="manual-grid">
+          <section class="manual-sec">
+            <h3>💿 Como Usar Disquetes (.DSK / .DO / .PO)</h3>
+            <ul>
+              <li>Clique em qualquer jogo da lista <strong>DISQUETES 5¼"</strong> à direita para inserir e dar boot automático.</li>
+              <li>Você também pode clicar em <strong>📂 Abrir .DSK</strong> ou arrastar qualquer imagem <code>.dsk</code> (140 KB) do seu computador para a tela.</li>
+              <li>Se estiver no prompt <code>]</code> do Applesoft BASIC com um disco inserido, digite <code>PR#6</code> + <kbd>Enter</kbd> para dar boot pelo Slot 6.</li>
+              <li>Pressione <kbd>Shift</kbd> + <kbd>Esc</kbd> (ou clique na trava do drive) para ejetar o disco.</li>
+            </ul>
+          </section>
+          <section class="manual-sec">
+            <h3>🕹️ Joystick, Teclado &amp; Jogos</h3>
+            <ul>
+              <li>Jogos de arcade/ação ativam o <strong>Joystick ($C064/$C061)</strong> automaticamente: use as <strong>Setas</strong>, <kbd>Espaço</kbd> (Botão 0) e <kbd>Alt</kbd> (Botão 1).</li>
+              <li>Em jogos com opção de teclado (como <em>Karateka</em> ou <em>Moon Patrol</em>), pressione <kbd>K</kbd> no jogo para usar o teclado (e <kbd>J</kbd> para voltar ao joystick).</li>
+              <li>O painel <strong>TECLAS</strong> à direita exibe automaticamente os comandos exatos de cada jogo instalado.</li>
+            </ul>
+          </section>
+          <section class="manual-sec">
+            <h3>⌨️ Comandos DOS 3.3 &amp; Monitor</h3>
+            <ul>
+              <li><code>CATALOG</code> — Lista os arquivos do disquete DOS 3.3.</li>
+              <li><code>RUN NOME</code> — Carrega e executa um programa BASIC do disco.</li>
+              <li><code>BRUN NOME</code> — Carrega e executa um binário em código de máquina.</li>
+              <li><code>CALL -151</code> — Entra no Monitor de Sistema (prompt <code>*</code>). Digite <code>3D0G</code> + <kbd>Enter</kbd> para voltar ao BASIC.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal do Manual Applesoft BASIC -->
+  <div id="a2-basic-manual-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="a2-basic-manual-title">
+    <div class="modal-card basic-modal-card">
+      <div class="modal-header basic-modal-header">
+        <h2 id="a2-basic-manual-title">📘 Manual Applesoft BASIC (Apple II+)</h2>
+        <button id="btn-close-a2-basic-manual" class="modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="basic-search-bar">
+          <input id="a2-basic-search" type="search" placeholder="Filtrar comando (ex: HGR, HPLOT, GR, CALL, PEEK, FOR)..." />
+        </div>
+        <div class="manual-grid basic-manual-grid" id="a2-basic-manual-content">
+          <section class="basic-sec">
+            <h3>1. Edição, Execução &amp; Tela Texto</h3>
+            <ul>
+              <li><code>HOME</code> — Limpa a tela de texto (40×24) e move o cursor ao topo.</li>
+              <li><code>LIST</code> / <code>LIST 10,50</code> — Lista as linhas do programa em memória.</li>
+              <li><code>RUN</code> / <code>RUN 100</code> — Executa o programa desde o início ou da linha 100.</li>
+              <li><code>NEW</code> — Apaga o programa atual da memória.</li>
+              <li><code>PRINT expr</code> (ou <code>? expr</code>) — Exibe texto ou cálculo na tela.</li>
+              <li><code>INPUT "NOME? "; N$</code> — Solicita entrada de dados ao usuário.</li>
+              <li><code>HTAB x</code> / <code>VTAB y</code> — Posiciona o cursor na coluna <code>x</code> (1–40) e linha <code>y</code> (1–24).</li>
+              <li><code>INVERSE</code> / <code>NORMAL</code> / <code>FLASH</code> — Alterna texto invertido, normal ou piscante.</li>
+              <li><kbd>Ctrl</kbd> + <kbd>C</kbd> — Interrompe a execução do programa (<code>BREAK</code>).</li>
+            </ul>
+          </section>
+          <section class="basic-sec">
+            <h3>2. Gráficos Lo-Res (GR) &amp; Hi-Res (HGR)</h3>
+            <ul>
+              <li><code>TEXT</code> — Retorna do modo gráfico para texto completo 40×24.</li>
+              <li><code>GR</code> — Ativa modo gráfico de baixa resolução (40×40 + 4 linhas de texto).</li>
+              <li><code>COLOR= c</code> — Define cor Lo-Res (0 a 15).</li>
+              <li><code>PLOT x, y</code> / <code>HLIN x1,x2 AT y</code> / <code>VLIN y1,y2 AT x</code> — Desenha ponto e linhas em Lo-Res.</li>
+              <li><code>HGR</code> / <code>HGR2</code> — Ativa Hi-Res (280×160 + texto na página 1, ou 280×192 tela cheia na página 2).</li>
+              <li><code>HCOLOR= c</code> — Define cor Hi-Res (0=Preto, 1=Verde, 2=Violeta, 3=Branco, 5=Laranja, 6=Azul).</li>
+              <li><code>HPLOT x, y</code> / <code>HPLOT TO x2, y2</code> — Desenha pontos e segmentos de reta em Hi-Res.</li>
+            </ul>
+          </section>
+          <section class="basic-sec">
+            <h3>3. Controle de Fluxo, Hardware &amp; Disco</h3>
+            <ul>
+              <li><code>IF cond THEN cmd</code> / <code>GOTO n</code> / <code>GOSUB n</code> / <code>RETURN</code> — Desvios e sub-rotinas.</li>
+              <li><code>FOR I = 1 TO 10 STEP 2</code> ... <code>NEXT I</code> — Laço de repetição.</li>
+              <li><code>DIM A(10)</code> / <code>DATA ...</code> / <code>READ X</code> — Vetores e dados embutidos.</li>
+              <li><code>PEEK(addr)</code> / <code>POKE addr, val</code> — Lê ou grava direto na RAM/I/O (ex: <code>PEEK(-16336)</code> gera clique no alto-falante).</li>
+              <li><code>PDL(0)</code> / <code>PDL(1)</code> — Lê os eixos X/Y do Paddle/Joystick (0–255).</li>
+              <li><code>PR#6</code> / <code>IN#0</code> — Redireciona saída para o Slot 6 (Disk II) ou entrada padrão.</li>
+              <li><code>CALL -151</code> — Entra no Monitor hexadecimal da ROM.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal da Gaveta de Fitas K7 / Caixa de Disquetes 5¼" -->
+  <div id="catalog-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="catalog-modal-title">
+    <div class="modal-card catalog-modal-card">
+      <div class="modal-header catalog-modal-header">
+        <div class="catalog-header-title-wrap">
+          <h2 id="catalog-modal-title">🗂️ Gaveta de Fitas K7 — Microdigital TK 2000 II</h2>
+          <span id="catalog-modal-count" class="catalog-total-badge">110 itens</span>
+        </div>
+        <div class="catalog-header-actions">
+          <a id="catalog-zip-link" href="https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/tk2000.zip" target="_blank" rel="noopener noreferrer" class="catalog-zip-btn">
+            📥 Baixar Pack tk2000.zip (1,5 MB)
+          </a>
+          <button id="btn-close-catalog" class="modal-close" title="Fechar catálogo">✕</button>
+        </div>
+      </div>
+      <div class="catalog-toolbar">
+        <input type="search" id="catalog-search-input" class="catalog-search-input" placeholder="🔍 Filtrar por nome do jogo, estilo, ano ou formato..." autocomplete="off" />
+        <div id="catalog-category-tabs" class="catalog-category-tabs"></div>
+      </div>
+      <div class="modal-body catalog-modal-body">
+        <div id="catalog-grid" class="catalog-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4u-Labs (Aplicativos, suporte e comunidade — 14 links + PayPal) -->
+  <div id="modal-4ulabs" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-4ulabs-title">
+    <div class="modal-card eco-modal-card">
+      <div class="modal-header">
+        <h2 id="modal-4ulabs-title">🚀 Aplicativos, suporte e comunidade — 4u-Labs</h2>
+        <button id="btn-close-4ulabs" class="modal-close" title="Fechar">✕</button>
+      </div>
+      <div class="modal-body">
+        <p id="modal-4ulabs-desc" class="eco-modal-desc">
+          O <strong>K7 &amp; Floppy</strong> faz parte do ecossistema gratuito e privado da <strong>4u-Labs</strong>. Execute jogos e programas reais de TK 2000 II e Apple II+ direto no navegador, sem anúncios, sem cadastro e 100% client-side.
+        </p>
+        <div class="links-grid-14">
+          <a href="https://4u.ia.br/" target="_blank" rel="noopener noreferrer"><span>Portal 4U</span> <span>↗</span></a>
+          <a href="https://4u.ia.br/loja/index.php" target="_blank" rel="noopener noreferrer"><span>Loja de Apps</span> <span>↗</span></a>
+          <a href="https://4u.ia.br/suporte.html" target="_blank" rel="noopener noreferrer"><span>Central de Ajuda</span> <span>↗</span></a>
+          <a href="https://4u.ia.br/sobre.html" target="_blank" rel="noopener noreferrer"><span>Sobre 4U</span> <span>↗</span></a>
+          <a href="https://4u.ia.br/termos.html" target="_blank" rel="noopener noreferrer"><span>Termos</span> <span>↗</span></a>
+          <a href="https://4u.ia.br/politica.html" target="_blank" rel="noopener noreferrer"><span>Privacidade</span> <span>↗</span></a>
+          <a href="https://github.com/4u-Labs" target="_blank" rel="noopener noreferrer"><span>GitHub</span> <span>↗</span></a>
+          <a href="https://4u-labs.github.io/" target="_blank" rel="noopener noreferrer"><span>Blog Dev</span> <span>↗</span></a>
+          <a href="https://alternativeto.net/user/4u-ia-br/added/" target="_blank" rel="noopener noreferrer"><span>AlternativeTo</span> <span>↗</span></a>
+          <a href="https://www.youtube.com/@fbr4g4" target="_blank" rel="noopener noreferrer"><span>YouTube</span> <span>↗</span></a>
+          <a href="https://www.instagram.com/fbr4g4/" target="_blank" rel="noopener noreferrer"><span>Instagram</span> <span>↗</span></a>
+          <a href="https://www.facebook.com/fbr4g4/" target="_blank" rel="noopener noreferrer"><span>Facebook</span> <span>↗</span></a>
+          <a href="https://x.com/fbr4g4" target="_blank" rel="noopener noreferrer"><span>X / Twitter</span> <span>↗</span></a>
+          <a href="https://www.linkedin.com/in/fbr4g4/" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span> <span>↗</span></a>
+        </div>
+        <div class="eco-support-row">
+          <a id="eco-paypal-link" href="https://www.paypal.com/ncp/payment/L7YRCS984T33N" target="_blank" rel="noopener noreferrer" class="catalog-zip-btn eco-support-btn">
+            ☕ Apoiar o projeto (PayPal) ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

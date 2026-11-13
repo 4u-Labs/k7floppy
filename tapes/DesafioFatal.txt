@@ -1,0 +1,5 @@
+DESAFIO FATAL
+Para carregar:- No emulador TK-2000, acessar a opção do menu "Tape -> Inserir (F4)" e selecione o arquivo CT2 do Jogo.Digite:
+LM <RETURN>R  <RETURN>Depois para rodar: 8700G <RETURN>
+INSTRUÇÕES DO JOGO
+Use as setas ou joystick para se movimentar. As teclas "A" e "Z"substituem as setas cima/baixo. Use <RETURN> para começar.

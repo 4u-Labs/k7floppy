@@ -1,0 +1,5 @@
+Para carregar digite:
+
+LOADT   <RETURN>
+
+Programa Comercial, Plota o Biorritimo.

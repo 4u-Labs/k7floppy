@@ -1,0 +1,6 @@
+Para carregar digite:
+
+LOADT   <RETURN>
+RUN     <RETURN>
+
+Programa em BASIC.

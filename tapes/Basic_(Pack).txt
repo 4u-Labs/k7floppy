@@ -1,0 +1,94 @@
+Programas digitados de Revistas e/ou Livros (Sem testar)
+Decodificando 'basic(a).wav'
+Calculando comprimentos...
+
+Interpretado 88 arquivos:
+'CARTA ' de 0x07 blocos com endereco de 0x0801 a 0x0E95 - ERRO CHECKSUM
+'DAMA  ' de 0x0B blocos com endereco de 0x0801 a 0x1287 
+'TRES  ' de 0x08 blocos com endereco de 0x0801 a 0x0FD1 
+'REVERS' de 0x05 blocos com endereco de 0x0801 a 0x0C77 
+'LABIRI' de 0x0D blocos com endereco de 0x0801 a 0x144E 
+'NEVADA' de 0x08 blocos com endereco de 0x0801 a 0x0F81 
+'PALITO' de 0x07 blocos com endereco de 0x0801 a 0x0E48 
+'MOITA ' de 0x11 blocos com endereco de 0x0801 a 0x188D 
+'TABULR' de 0x06 blocos com endereco de 0x0801 a 0x0DE2 
+'OPERAC' de 0x06 blocos com endereco de 0x0801 a 0x0DDD 
+'DADOS ' de 0x07 blocos com endereco de 0x0801 a 0x0EB5 
+'BOBO M' de 0x06 blocos com endereco de 0x0801 a 0x0DFC 
+'9 NUME' de 0x08 blocos com endereco de 0x0801 a 0x0F88 
+'PILHA ' de 0x0B blocos com endereco de 0x0801 a 0x1247 
+'NOVLET' de 0x03 blocos com endereco de 0x9D00 a 0x9F90 
+'NOVLET' de 0x03 blocos com endereco de 0x9D00 a 0x9F90 
+'ASPIRL' de 0x04 blocos com endereco de 0x0801 a 0x0B1D 
+'TK2000' de 0x02 blocos com endereco de 0x0801 a 0x0956 
+'TK2000' de 0x01 blocos com endereco de 0x0801 a 0x08B4 
+'TK2000' de 0x01 blocos com endereco de 0x0801 a 0x086E 
+'TENTE ' de 0x02 blocos com endereco de 0x0801 a 0x0944 
+'TENTE ' de 0x01 blocos com endereco de 0x0801 a 0x0892 
+'TENTE ' de 0x01 blocos com endereco de 0x0801 a 0x0887 
+'TENTE ' de 0x01 blocos com endereco de 0x0801 a 0x08CD 
+'TENTE ' de 0x03 blocos com endereco de 0x0801 a 0x0A59 
+'TENTE ' de 0x02 blocos com endereco de 0x0801 a 0x091F 
+'LINERS' de 0x01 blocos com endereco de 0x0801 a 0x0895 
+'LINERS' de 0x02 blocos com endereco de 0x0801 a 0x093F 
+'LINERS' de 0x01 blocos com endereco de 0x0801 a 0x08C0 
+'DEMOLI' de 0x08 blocos com endereco de 0x0801 a 0x0F10 
+'FUNCAO' de 0x15 blocos com endereco de 0x0801 a 0x1CCF 
+'FUNCAO' de 0x15 blocos com endereco de 0x0801 a 0x1CCF - ERRO CHECKSUM
+'LABIRT' de 0x08 blocos com endereco de 0x0801 a 0x0F89 
+'LABIRT' de 0x08 blocos com endereco de 0x0801 a 0x0F89 
+'COMETA' de 0x10 blocos com endereco de 0x0801 a 0x17F5 
+'APPLE ' de 0x03 blocos com endereco de 0x0801 a 0x0A73 
+'TELA  ' de 0x03 blocos com endereco de 0x0801 a 0x0A52 
+'TELA  ' de 0x03 blocos com endereco de 0x0801 a 0x0A4F 
+'TELA  ' de 0x03 blocos com endereco de 0x0801 a 0x0A65 
+'TELA  ' de 0x03 blocos com endereco de 0x0801 a 0x0A4F 
+'TELA  ' de 0x02 blocos com endereco de 0x0801 a 0x09B4 
+'APPLE ' de 0x03 blocos com endereco de 0x0801 a 0x0ACB 
+'APPLE ' de 0x03 blocos com endereco de 0x0801 a 0x0AC5 
+'APPLE ' de 0x03 blocos com endereco de 0x0801 a 0x0AC9 
+'APPLE ' de 0x03 blocos com endereco de 0x0801 a 0x0ACD 
+'COR & ' de 0x01 blocos com endereco de 0x0300 a 0x0318 
+'COR & ' de 0x07 blocos com endereco de 0x0801 a 0x0E59 
+'GABRIE' de 0x10 blocos com endereco de 0x0801 a 0x17EB 
+'GABRIE' de 0x10 blocos com endereco de 0x0801 a 0x17EB 
+'DICAS ' de 0x03 blocos com endereco de 0x0801 a 0x0A97 
+'DICAS ' de 0x03 blocos com endereco de 0x0801 a 0x0A30 
+'DECOLA' de 0x03 blocos com endereco de 0x0801 a 0x0A81 
+'INTERG' de 0x04 blocos com endereco de 0x0801 a 0x0B3B 
+'PRCOSM' de 0x04 blocos com endereco de 0x0801 a 0x0B32 
+'PRCOSM' de 0x04 blocos com endereco de 0x0801 a 0x0B32 
+'OLHOSM' de 0x04 blocos com endereco de 0x0801 a 0x0B36 
+'MODLUN' de 0x04 blocos com endereco de 0x0801 a 0x0B13 
+'FERGAL' de 0x05 blocos com endereco de 0x0801 a 0x0C6B 
+'EMBOSC' de 0x03 blocos com endereco de 0x0801 a 0x0A8B 
+'CINAST' de 0x04 blocos com endereco de 0x0801 a 0x0B3E 
+'VIAFUT' de 0x04 blocos com endereco de 0x0801 a 0x0B2E 
+'VALMOR' de 0x04 blocos com endereco de 0x0801 a 0x0BB8 
+'ASTRON' de 0x08 blocos com endereco de 0x0801 a 0x0F3C 
+'SAVESP' de 0x0C blocos com endereco de 0x0801 a 0x130C 
+'POULUA' de 0x06 blocos com endereco de 0x0801 a 0x0D46 
+'DESENH' de 0x04 blocos com endereco de 0x0801 a 0x0B16 
+'DESENH' de 0x05 blocos com endereco de 0x0801 a 0x0C5A 
+'FORCA ' de 0x06 blocos com endereco de 0x0801 a 0x0D41 
+'TECMUS' de 0x01 blocos com endereco de 0x0300 a 0x03B8 
+'TECMUS' de 0x06 blocos com endereco de 0x0801 a 0x0D06 
+'FORCA ' de 0x0A blocos com endereco de 0x0801 a 0x11D5 
+'FORCA ' de 0x0A blocos com endereco de 0x0801 a 0x11D5 
+'BANCOD' de 0x0C blocos com endereco de 0x0801 a 0x1311 
+'BANCOD' de 0x0C blocos com endereco de 0x0801 a 0x1311 
+'COFRE ' de 0x09 blocos com endereco de 0x0801 a 0x109D 
+'FORMA ' de 0x1B blocos com endereco de 0x0801 a 0x22C0 
+'VELHA ' de 0x07 blocos com endereco de 0x0801 a 0x0E6C 
+'INVERS' de 0x06 blocos com endereco de 0x0801 a 0x0D11 
+'GIRO  ' de 0x0A blocos com endereco de 0x0801 a 0x1142 - INCOMPLETO
+'      ' de 0x09 blocos com endereco de 0x0801 a 0x104F 
+'LETTER' de 0x0D blocos com endereco de 0x0801 a 0x1412 
+'INDICE' de 0x10 blocos com endereco de 0x0801 a 0x1709 
+'INDICE' de 0x18 blocos com endereco de 0x0801 a 0x1F8B 
+'INDICE' de 0x18 blocos com endereco de 0x0801 a 0x1F8B 
+'MENU  ' de 0x04 blocos com endereco de 0x0801 a 0x0B1B 
+'INICIO' de 0x04 blocos com endereco de 0x0801 a 0x0BE0 
+'INICIO' de 0x02 blocos com endereco de 0x0801 a 0x09D8 
+'ALFANU' de 0x18 blocos com endereco de 0x0801 a 0x1F8B - ERRO CHECKSUM
+

@@ -1,0 +1,13 @@
+Cannon Ball Blitz
+Para carregar digite:
+
+LOADT   <RETURN>
+Teclas de comando
+Para iniciar o jogo	(K)
+Mover-se à esdquerda	(seta esquerda)
+Mover-se à direita	(seta direita)
+Subir			(seta ascendente)
+Descer			(seta descendente)
+Pular			(barra)
+Desligar som		(CTRL + S)
+OBS.: Tecla (FIRE) anula ultima tecla pressionada.

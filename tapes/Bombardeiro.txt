@@ -1,0 +1,8 @@
+BOMBARDEIRO
+Você é um piloto de caça, encarregado de missões de ataque em território inimigo. Como veterano de muitos combates, os mais perigosos objetivos são reservados para você.
+Ao todo serão cinco missões para cumprir. O futuro de toda uma guerra, e de todas as nações envolvidas, depende de sua perícia e habilidade em contornar os inusitados perigos que surgirão.
+A autonomia de vôo de sua aeronave é limitada. Durante a missão, o centro de controle enviará aviões de reabastecimento, os quais lançarão cargas de combustível e bombas para você. Muita calma e nervos de aço são as principais requisitos para se reabastecer em vôo.
+---
+Para carregar digite:
+
+LOADT   <RETURN>

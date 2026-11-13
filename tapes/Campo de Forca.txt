@@ -1,0 +1,26 @@
+CAMPO DE FORCA (PULSAR)
+
+Para carregar digite: 
+LOADT <RETURN>
+===
+Após a carga do programa, pressione a tecla <FIRE> 
+para iniciar o jogo. Você dispõe de até três 
+naves para cada nível do jogo.
+
+Durante o jogo. use as seguintes teclas:
+
+(<-) e (->)	- para movimentar sua nave
+<FIRE>		- para fazer disparos
+
+Quando você conseguir atingir o Pulsar, reinicie o 
+jogo através da tecla <FIRE>. O jogo passará, 
+automaticamente, para um nível mais difícil.
+
+No alto da tela você terá o placar (SCORE) de cada 
+nível e o placar geral do jogo (HI).
+
+Na parte de baixo da tela, você terá o número de 
+naves disponíveis naquele nível (SHIP LEFT) e a 
+indicação do nível (LEVEL).
+
+Você poderá jogar também com Joystick.

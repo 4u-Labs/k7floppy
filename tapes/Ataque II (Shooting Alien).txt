@@ -1,0 +1,5 @@
+Ataque II (Shooting Alien)
+Para carregar digite:
+
+LOADT   <RETURN>
+

@@ -1,0 +1,14 @@
+BUG ATTACK (CMC)
+Para carregar: LM (return) 
+		R (return)
+
+Após o OK do Micro, pare o gravador
+digite 60G (return).
+
+Obs.: o programa entrará automática-
+mente.
+
+COMANDOS p/ JOGAR:
+SETAS P/ ESQUERDA
+SETAS P/ DIREITA
+FIRE P/ ATIRAR. 

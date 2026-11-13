@@ -1,0 +1,21 @@
+BOLO (Cibertron)
+Você esta no comando de um 
+tanque, e sua missão é destruir 
+um quartel general inimigo 
+dentro de um labirinto, e 
+guardado por carros blindados.
+Um sensor de proximidade 
+indicará a posição do alvo no 
+painel de instrumentos.
+Comando independente de 
+direção, de tiro e deslocamento.
+Jogo fantástico, combinando 
+inteligência e rapidez de reflexos.
+---
+Para carregar digite:
+
+LOADT   <RETURN>
+
+
+
+ 

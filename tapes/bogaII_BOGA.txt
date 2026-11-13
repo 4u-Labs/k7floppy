@@ -1,0 +1,7 @@
+Decodificando 'bogaII.wav'
+Calculando comprimentos...
+
+Interpretado 2 arquivos:
+'BOGA  ' de 0x01 blocos com endereco de 0x0036 a 0x00FF 
+'BOGA  ' de 0x0B blocos com endereco de 0x0800 a 0x120D 
+

@@ -1,0 +1,33 @@
+{
+  "name": "K7 & Floppy — Emulador Microdigital TK 2000 II & Apple II+",
+  "short_name": "K7 & Floppy",
+  "description": "Emulador real 6502 no navegador do Microdigital TK 2000 II (gravador K7 e fitas .CT2) e Apple II+ (drive Disk II e disquetes 5¼\" .DSK), com 160+ jogos clássicos, BASIC e manuais interativos.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#120d0a",
+  "theme_color": "#120d0a",
+  "lang": "pt-BR",
+  "categories": ["games", "education", "entertainment", "utilities"],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
