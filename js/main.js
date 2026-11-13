@@ -287,9 +287,9 @@ function applyLanguageUI() {
   if (btnLang) btnLang.title = tr('Alternar idioma PT / EN', 'Switch language PT / EN');
 
   const tapeRackTitle = document.querySelector('#tape-rack-section .rack-title');
-  if (tapeRackTitle) tapeRackTitle.textContent = tr('FITAS K7 (.CT2 REAIS & JOGOS)', 'CASSETTE TAPES (.CT2 & GAMES)');
+  if (tapeRackTitle) tapeRackTitle.textContent = tr('FITAS K7 TK 2000', 'TK 2000 TAPES');
   const floppyRackTitle = document.querySelector('#floppy-rack-section .rack-title');
-  if (floppyRackTitle) floppyRackTitle.textContent = tr('DISQUETES 5¼" (.DSK & JOGOS)', '5¼" FLOPPY DISKS (.DSK & GAMES)');
+  if (floppyRackTitle) floppyRackTitle.textContent = tr('DISQUETES APPLE II', 'APPLE II DISKS');
 
   const tapeOpenBtn = document.querySelector('#cassette-deck .file-upload-btn');
   if (tapeOpenBtn && tapeOpenBtn.firstChild) {
@@ -1028,6 +1028,20 @@ function downloadCt2File(tapeEntry) {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
+function updateRackStatsBar(badgeId, labelId, switchId, shownCount, totalCount) {
+  const badgeEl = document.getElementById(badgeId);
+  const labelEl = document.getElementById(labelId);
+  const switchEl = document.getElementById(switchId);
+  const filtered = shownCount < totalCount;
+  if (badgeEl) badgeEl.textContent = filtered ? `${shownCount} / ${totalCount}` : String(totalCount);
+  if (labelEl) {
+    labelEl.textContent = filtered
+      ? tr('apps filtrados', 'filtered apps')
+      : tr('apps disponíveis', 'apps available');
+  }
+  if (switchEl) switchEl.textContent = `${totalCount} apps`;
+}
+
 function renderTapeRack() {
   tapeRack.innerHTML = '';
   const searchEl = document.getElementById('tape-search-input');
@@ -1046,8 +1060,7 @@ function renderTapeRack() {
     return hay.includes(query);
   });
 
-  const countBadge = document.getElementById('tape-count-badge');
-  if (countBadge) countBadge.textContent = String(filtered.length);
+  updateRackStatsBar('tape-count-badge', 'tape-stats-label', 'tk-switch-count', filtered.length, combined.length);
 
   if (filtered.length === 0) {
     const empty = document.createElement('div');
@@ -1313,8 +1326,7 @@ function renderFloppyRack() {
     return hay.includes(query);
   });
 
-  const countBadge = document.getElementById('floppy-count-badge');
-  if (countBadge) countBadge.textContent = String(filtered.length);
+  updateRackStatsBar('floppy-count-badge', 'floppy-stats-label', 'a2-switch-count', filtered.length, FLOPPY_DISKS.length);
 
   if (filtered.length === 0) {
     const empty = document.createElement('div');

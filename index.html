@@ -73,11 +73,11 @@
         <span class="badge" id="engine-badge">CPU 6502 • ROM REAL 16K</span>
       </div>
       <div class="machine-switcher" role="group" aria-label="Alternar computador">
-        <button id="btn-mode-tk2000" class="machine-switch-btn active" title="Usar Microdigital TK 2000 II (Gravador K7 e fitas)">
-          🖥️ TK 2000 II
+        <button id="btn-mode-tk2000" class="machine-switch-btn active" title="Usar Microdigital TK 2000 II (110 apps em fita K7)">
+          🖥️ TK 2000 II <span class="machine-count-pill" id="tk-switch-count">110 apps</span>
         </button>
-        <button id="btn-mode-apple2" class="machine-switch-btn" title="Usar Apple II+ (Drive Disk II e disquetes .DSK)">
-          🍎 Apple II+
+        <button id="btn-mode-apple2" class="machine-switch-btn" title="Usar Apple II+ (50 apps em disquete .DSK)">
+          🍎 Apple II+ <span class="machine-count-pill" id="a2-switch-count">50 apps</span>
         </button>
       </div>
       <div class="topbar-actions">
@@ -165,7 +165,6 @@
             <div class="rack-header-row">
               <div class="rack-title" id="tape-rack-title">FITAS K7 TK 2000</div>
               <div class="rack-header-actions">
-                <span class="rack-count-badge" id="tape-count-badge">110</span>
                 <button type="button" id="btn-open-tape-catalog" class="rack-catalog-btn" title="Abrir Gaveta Visual de Fitas K7 em tela cheia">🗂️ Gaveta</button>
                 <a href="https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/tk2000.zip" target="_blank" rel="noopener noreferrer" class="rack-zip-link" title="Baixar pacote completo tk2000.zip (1,5 MB) hospedado no GitHub Releases">⬇ ZIP</a>
               </div>
@@ -179,6 +178,10 @@
                 <button type="button" class="rack-pill" data-cat="ct2">📼 .CT2</button>
                 <button type="button" class="rack-pill" data-cat="apps">🧰 BASIC</button>
               </div>
+            </div>
+            <div class="rack-stats-bar" id="tape-stats-bar" aria-live="polite">
+              <span class="rack-stats-main"><span class="rack-stats-dot"></span><strong id="tape-count-badge">110</strong> <span id="tape-stats-label">apps disponíveis</span></span>
+              <span class="rack-stats-tag">.CT2 &amp; BASIC</span>
             </div>
             <div id="tape-rack" class="tape-rack"></div>
           </section>
@@ -212,9 +215,8 @@
           <!-- Pilha de Disquetes 5¼" Apple II -->
           <section class="media-rack" id="floppy-rack-section">
             <div class="rack-header-row">
-              <div class="rack-title" id="floppy-rack-title">DISQUETES 5¼" APPLE II</div>
+              <div class="rack-title" id="floppy-rack-title">DISQUETES APPLE II</div>
               <div class="rack-header-actions">
-                <span class="rack-count-badge" id="floppy-count-badge">50</span>
                 <button type="button" id="btn-open-floppy-catalog" class="rack-catalog-btn" title="Abrir Caixa Visual de Disquetes 5¼&quot; em tela cheia">🗂️ Caixa</button>
                 <a href="https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/appleii.zip" target="_blank" rel="noopener noreferrer" class="rack-zip-link" title="Baixar pacote completo appleii.zip (2,1 MB) hospedado no GitHub Releases">⬇ ZIP</a>
               </div>
@@ -228,6 +230,10 @@
                 <button type="button" class="rack-pill" data-cat="adventure">🏰 Aventura</button>
                 <button type="button" class="rack-pill" data-cat="pack">📦 Packs</button>
               </div>
+            </div>
+            <div class="rack-stats-bar" id="floppy-stats-bar" aria-live="polite">
+              <span class="rack-stats-main"><span class="rack-stats-dot"></span><strong id="floppy-count-badge">50</strong> <span id="floppy-stats-label">apps disponíveis</span></span>
+              <span class="rack-stats-tag">.DSK 5¼"</span>
             </div>
             <div id="floppy-rack" class="floppy-rack"></div>
           </section>
