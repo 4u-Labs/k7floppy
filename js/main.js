@@ -1666,6 +1666,16 @@ const JOYSTICK_MAPPED_CODES = new Set([
   'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Space', 'AltLeft', 'AltRight',
 ]);
 
+function handleJoystickKey(code, isDown) {
+  if (!joystickMode || !JOYSTICK_MAPPED_CODES.has(code)) return false;
+  if (isDown) joyKeysDown.add(code);
+  else joyKeysDown.delete(code);
+  updateJoystickAxes();
+  // Espaço aciona o Botão 0 ($C061) e também segue para o teclado ($C000)
+  // para funcionar em menus "PRESS <SPACE> TO START" mesmo com Joystick ativo.
+  return code !== 'Space';
+}
+
 function setEmulatedTouchKey(code, key, isDown, opts = {}) {
   const { sub = '' } = opts;
   keyElementsByCode.get(code)?.classList.toggle('active', isDown);
@@ -1687,11 +1697,7 @@ function setEmulatedTouchKey(code, key, isDown, opts = {}) {
       return;
     }
     if (!powerOn) return;
-    if (joystickMode && JOYSTICK_MAPPED_CODES.has(code)) {
-      joyKeysDown.add(code);
-      updateJoystickAxes();
-      return;
-    }
+    if (handleJoystickKey(code, true)) return;
     if (activeMode === 'apple2') {
       const keyChar = stickyShift && sub ? sub : key;
       apple2.setKeyState(code, keyChar, true, stickyCtrl);
@@ -1706,11 +1712,7 @@ function setEmulatedTouchKey(code, key, isDown, opts = {}) {
     bonusKeysDown.delete(code);
     return;
   }
-  if (joystickMode && JOYSTICK_MAPPED_CODES.has(code)) {
-    joyKeysDown.delete(code);
-    updateJoystickAxes();
-    return;
-  }
+  if (handleJoystickKey(code, false)) return;
   if (activeMode === 'apple2') {
     apple2.setKeyState(code, key, false, false);
     clearStickyModifiers();
@@ -1863,11 +1865,7 @@ window.addEventListener('keydown', (e) => {
     if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space', 'Backspace', 'Slash', 'Quote', 'Tab', 'Escape'].includes(e.code)) {
       e.preventDefault();
     }
-    if (joystickMode && JOYSTICK_MAPPED_CODES.has(e.code)) {
-      joyKeysDown.add(e.code);
-      updateJoystickAxes();
-      return;
-    }
+    if (handleJoystickKey(e.code, true)) return;
     if (!e.repeat) audio.playKeyClick();
     keyElementsByCode.get(e.code)?.classList.add('active');
     apple2.setKeyState(e.code, e.key, true, e.ctrlKey);
@@ -1889,11 +1887,7 @@ window.addEventListener('keydown', (e) => {
     e.preventDefault();
   }
 
-  if (joystickMode && JOYSTICK_MAPPED_CODES.has(e.code)) {
-    joyKeysDown.add(e.code);
-    updateJoystickAxes();
-    return;
-  }
+  if (handleJoystickKey(e.code, true)) return;
 
   if (!e.repeat) {
     audio.playKeyClick();
@@ -1912,20 +1906,12 @@ window.addEventListener('keyup', (e) => {
   }
 
   if (activeMode === 'apple2') {
-    if (joystickMode && JOYSTICK_MAPPED_CODES.has(e.code)) {
-      joyKeysDown.delete(e.code);
-      updateJoystickAxes();
-      return;
-    }
+    if (handleJoystickKey(e.code, false)) return;
     apple2.setKeyState(e.code, e.key, false, e.ctrlKey);
     return;
   }
 
-  if (joystickMode && JOYSTICK_MAPPED_CODES.has(e.code)) {
-    joyKeysDown.delete(e.code);
-    updateJoystickAxes();
-    return;
-  }
+  if (handleJoystickKey(e.code, false)) return;
 
   machine.keyboard.setKeyState(e.code, e.key, false, e.shiftKey, e.ctrlKey);
 });
