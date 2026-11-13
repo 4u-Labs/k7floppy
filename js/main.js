@@ -318,6 +318,42 @@ function applyLanguageUI() {
   setBook('#desk-a2-manual', 'APPLE COMPUTER', tr('MANUAL APPLE II+', 'APPLE II+ MANUAL'), tr('Disk II, PR#6, DOS 3.3 & Jogos', 'Disk II, PR#6, DOS 3.3 & Games'));
   setBook('#desk-a2-basic-manual', 'APPLESOFT • 1979', tr('MANUAL APPLESOFT BASIC', 'APPLESOFT BASIC MANUAL'), tr('Comandos, GR, HGR, PEEK/POKE', 'Commands, GR, HGR, PEEK/POKE'));
 
+  const packsBrand = document.getElementById('packs-box-brand');
+  if (packsBrand) packsBrand.textContent = tr('PACKS & MANUAIS', 'PACKS & MANUALS');
+  const setPack = (id, title, sub, titleAttr) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const st = el.querySelector('.pack-meta strong');
+    const sm = el.querySelector('.pack-meta small');
+    if (st) st.textContent = title;
+    if (sm) sm.textContent = sub;
+    if (titleAttr) el.title = titleAttr;
+  };
+  setPack(
+    'pack-tk-media',
+    tr('Pack Fitas & Discos', 'Tape & Disk Pack'),
+    tr('tk2000.zip • .CT2/.DSK', 'tk2000.zip • .CT2/.DSK'),
+    tr('Baixar todas as fitas .CT2 e discos .DSK do TK 2000 (1,5 MB)', 'Download all TK 2000 .CT2 tapes and .DSK images (1.5 MB)')
+  );
+  setPack(
+    'pack-tk-manuals',
+    tr('Pack Manuais TK 2000', 'TK 2000 Manuals Pack'),
+    tr('6 PDFs originais', '6 Original PDFs'),
+    tr('Baixar os 6 manuais originais do TK 2000 em PDF (69,5 MB)', 'Download all 6 original TK 2000 PDF manuals (69.5 MB)')
+  );
+  setPack(
+    'pack-a2-media',
+    tr('Pack Disquetes .DSK', '.DSK Floppy Pack'),
+    tr('appleii.zip • 50 discos', 'appleii.zip • 50 disks'),
+    tr('Baixar todos os 50 disquetes .DSK do Apple II+ (2,1 MB)', 'Download all 50 Apple II+ .DSK disk images (2.1 MB)')
+  );
+  setPack(
+    'pack-a2-manuals',
+    tr('Pack Manuais Apple II', 'Apple II Manuals Pack'),
+    tr('4 PDFs originais', '4 Original PDFs'),
+    tr('Baixar os 4 manuais originais do Apple II+ em PDF (142 MB)', 'Download all 4 original Apple II+ PDF manuals (142 MB)')
+  );
+
   const btnCatalog = document.getElementById('btn-catalog');
   if (btnCatalog) btnCatalog.innerHTML = tr('🗂️ Catálogo', '🗂️ Catalog');
   const btnOpenTapeCat = document.getElementById('btn-open-tape-catalog');

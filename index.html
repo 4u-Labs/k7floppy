@@ -61,7 +61,7 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="style.css?v=20261113b" />
+  <link rel="stylesheet" href="style.css?v=20261113c" />
 </head>
 <body class="lamp-on machine-tk2000">
   <div class="room-backdrop">
@@ -313,6 +313,80 @@
             </button>
             <small class="joy-hint">Ative para jogos com Joystick (ex: Karateka)</small>
             <div class="keys-help" id="keys-help" aria-live="polite"></div>
+          </section>
+
+          <!-- Packs de Arquivos & Manuais (TK 2000 II e Apple II+) -->
+          <section class="desk-packs-box" id="desk-packs-box" aria-label="Downloads de Arquivos e Manuais">
+            <div class="drive-header">
+              <span class="drive-brand" id="packs-box-brand">PACKS &amp; MANUAIS</span>
+              <span class="mini-led packs-led"></span>
+            </div>
+
+            <div class="desk-packs-list tk-only">
+              <a
+                id="pack-tk-media"
+                href="https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/tk2000.zip"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="desk-pack-btn pack-media"
+                title="Baixar todas as fitas .CT2 e discos .DSK do TK 2000 (1,5 MB)"
+              >
+                <span class="pack-glyph" aria-hidden="true">📼</span>
+                <span class="pack-meta">
+                  <strong>Pack Fitas &amp; Discos</strong>
+                  <small>tk2000.zip • .CT2/.DSK</small>
+                </span>
+                <span class="pack-dl-pill">⬇ 1,5 MB</span>
+              </a>
+              <a
+                id="pack-tk-manuals"
+                href="https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/tk2000-manuais.zip"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="desk-pack-btn pack-manuals"
+                title="Baixar os 6 manuais originais do TK 2000 em PDF (69,5 MB)"
+              >
+                <span class="pack-glyph" aria-hidden="true">📚</span>
+                <span class="pack-meta">
+                  <strong>Pack Manuais TK 2000</strong>
+                  <small>6 PDFs originais</small>
+                </span>
+                <span class="pack-dl-pill">⬇ 69,5 MB</span>
+              </a>
+            </div>
+
+            <div class="desk-packs-list a2-only">
+              <a
+                id="pack-a2-media"
+                href="https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/appleii.zip"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="desk-pack-btn pack-media a2"
+                title="Baixar todos os 50 disquetes .DSK do Apple II+ (2,1 MB)"
+              >
+                <span class="pack-glyph" aria-hidden="true">💾</span>
+                <span class="pack-meta">
+                  <strong>Pack Disquetes .DSK</strong>
+                  <small>appleii.zip • 50 discos</small>
+                </span>
+                <span class="pack-dl-pill">⬇ 2,1 MB</span>
+              </a>
+              <a
+                id="pack-a2-manuals"
+                href="https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/appleii-manuais.zip"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="desk-pack-btn pack-manuals"
+                title="Baixar os 4 manuais originais do Apple II+ em PDF (142 MB)"
+              >
+                <span class="pack-glyph" aria-hidden="true">📚</span>
+                <span class="pack-meta">
+                  <strong>Pack Manuais Apple II</strong>
+                  <small>4 PDFs originais</small>
+                </span>
+                <span class="pack-dl-pill">⬇ 142 MB</span>
+              </a>
+            </div>
           </section>
 
           <!-- Manual espiralado clicável -->
@@ -680,6 +754,6 @@
     </div>
   </div>
 
-  <script type="module" src="js/main.js?v=20261113b"></script>
+  <script type="module" src="js/main.js?v=20261113c"></script>
 </body>
 </html>
