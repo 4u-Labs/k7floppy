@@ -1264,10 +1264,38 @@ body:not(.lamp-on) .lamp-cone {
 }
 
 @media (max-width: 1080px) {
+  html,
+  body,
+  .room-backdrop,
+  .desk-stage {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .desk-stage {
+    width: 100%;
+  }
+
   .desk-surface {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    min-width: 0;
+    width: 100%;
     max-width: 680px;
   }
+
+  .desk-surface > *,
+  .center-station,
+  .peripheral-col,
+  .crt-monitor,
+  .crt-bezel,
+  .tk2000-unit,
+  .tk-keywell,
+  .mobile-touch-controls {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
   .center-station { order: 1; }
   .left-col { order: 2; }
   .right-col { order: 3; }
