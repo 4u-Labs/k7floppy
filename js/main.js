@@ -1071,7 +1071,7 @@ function renderTapeRack() {
 
     const tapeThumb = document.createElement('img');
     tapeThumb.className = 'tape-mini-icon';
-    tapeThumb.src = 'assets/k7-mini.webp';
+    tapeThumb.src = 'assets/k7-mini.webp?v=2';
     tapeThumb.alt = '';
     tapeThumb.width = 30;
     tapeThumb.height = 19;
@@ -2343,7 +2343,7 @@ function renderCatalogModal() {
 
     const icon = isA2
       ? '💾'
-      : '<img class="catalog-k7-icon" src="assets/k7-mini.webp" alt="" width="22" height="14" />';
+      : '<img class="catalog-k7-icon" src="assets/k7-mini.webp?v=2" alt="" width="22" height="14" />';
     const actionLabel = item.isActive
       ? tr('⏹ Em execução (Clique p/ ejetar)', '⏹ Running (Click to eject)')
       : isA2
