@@ -667,6 +667,23 @@ const KNOWN_GAME_PROFILES = [
       ['Espaço', 'pular'],
     ],
   },
+  {
+    match: /burger\s*time/i,
+    title: 'BURGERTIME',
+    preferKeyboard: true,
+    arrowRemap: {
+      ArrowUp: ['KeyI', 'I'],
+      ArrowDown: ['KeyK', 'K'],
+      ArrowLeft: ['KeyJ', 'J'],
+      ArrowRight: ['KeyL', 'L'],
+    },
+    rows: [
+      ['← → ↑ ↓ (ou I/J/K/L)', 'mover o Chef'],
+      ['Espaço', 'jogar pimenta'],
+      ['A (menu disco)', 'iniciar BurgerTime'],
+      ['Q / Esc / Ctrl+R', 'som (Q) / pausa (Esc) / reiniciar'],
+    ],
+  },
 ];
 
 let lastScanTime = 0;
@@ -1676,6 +1693,15 @@ function handleJoystickKey(code, isDown) {
   return code !== 'Space';
 }
 
+function resolveApple2Key(code, key) {
+  if (activeMode === 'apple2' && !joystickMode && activeDskName) {
+    const profile = KNOWN_GAME_PROFILES.find((p) => p.match.test(activeDskName));
+    const mapped = profile?.arrowRemap?.[code];
+    if (mapped) return { code: mapped[0], key: mapped[1] };
+  }
+  return { code, key };
+}
+
 function setEmulatedTouchKey(code, key, isDown, opts = {}) {
   const { sub = '' } = opts;
   keyElementsByCode.get(code)?.classList.toggle('active', isDown);
@@ -1700,7 +1726,8 @@ function setEmulatedTouchKey(code, key, isDown, opts = {}) {
     if (handleJoystickKey(code, true)) return;
     if (activeMode === 'apple2') {
       const keyChar = stickyShift && sub ? sub : key;
-      apple2.setKeyState(code, keyChar, true, stickyCtrl);
+      const mapped = resolveApple2Key(code, keyChar);
+      apple2.setKeyState(mapped.code, mapped.key, true, stickyCtrl);
       clearStickyModifiers();
     } else {
       machine.keyboard.setKeyState(code, key, true, stickyShift, stickyCtrl);
@@ -1714,7 +1741,8 @@ function setEmulatedTouchKey(code, key, isDown, opts = {}) {
   }
   if (handleJoystickKey(code, false)) return;
   if (activeMode === 'apple2') {
-    apple2.setKeyState(code, key, false, false);
+    const mapped = resolveApple2Key(code, key);
+    apple2.setKeyState(mapped.code, mapped.key, false, false);
     clearStickyModifiers();
   } else if (activeMode === 'tk2000') {
     machine.keyboard.setKeyState(code, key, false, false, false);
@@ -1868,7 +1896,8 @@ window.addEventListener('keydown', (e) => {
     if (handleJoystickKey(e.code, true)) return;
     if (!e.repeat) audio.playKeyClick();
     keyElementsByCode.get(e.code)?.classList.add('active');
-    apple2.setKeyState(e.code, e.key, true, e.ctrlKey);
+    const mapped = resolveApple2Key(e.code, e.key);
+    apple2.setKeyState(mapped.code, mapped.key, true, e.ctrlKey);
     if (!e.ctrlKey && !e.metaKey && (activeDskName || '').toLowerCase().includes('karateka')) {
       if (e.code === 'KeyK' && joystickMode) {
         joystickMode = false;
@@ -1907,7 +1936,8 @@ window.addEventListener('keyup', (e) => {
 
   if (activeMode === 'apple2') {
     if (handleJoystickKey(e.code, false)) return;
-    apple2.setKeyState(e.code, e.key, false, e.ctrlKey);
+    const mapped = resolveApple2Key(e.code, e.key);
+    apple2.setKeyState(mapped.code, mapped.key, false, e.ctrlKey);
     return;
   }
 

@@ -366,7 +366,7 @@ export const FLOPPY_DISKS = [
     "dskName": "Burgertime.dsk",
     "description": "Monte hambúrgueres gigantes fugindo do Sr. Hot Dog.",
     "descriptionEn": "Build giant burgers while dodging Mr. Hot Dog.",
-    "controls": "Tecla A no menu | Setas / Joystick: Mover | Espaço: Pimenta"
+    "controls": "Tecla A no menu | Setas ou I/J/K/L: Mover | Espaço: Pimenta"
   },
   {
     "id": "disk-cannonball-blitz--mario-bros--montezuma-s-revenge",
