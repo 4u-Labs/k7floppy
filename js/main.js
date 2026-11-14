@@ -663,6 +663,7 @@ const KNOWN_GAME_PROFILES = [
     match: /montezuma/i,
     title: 'MONTEZUMA’S REVENGE',
     rows: [
+      ['Tecla 2 (menu)', 'iniciar Montezuma’s Revenge'],
       ['← → ↑ ↓', 'mover / subir escadas'],
       ['Espaço', 'pular'],
     ],
@@ -682,6 +683,161 @@ const KNOWN_GAME_PROFILES = [
       ['Espaço', 'jogar pimenta'],
       ['A (menu disco)', 'iniciar BurgerTime'],
       ['Q / Esc / Ctrl+R', 'som (Q) / pausa (Esc) / reiniciar'],
+    ],
+  },
+  {
+    match: /apple\s*panic/i,
+    title: 'APPLE PANIC',
+    preferKeyboard: true,
+    arrowRemap: {
+      ArrowUp: ['KeyI', 'I'],
+      ArrowDown: ['KeyK', 'K'],
+      ArrowLeft: ['KeyJ', 'J'],
+      ArrowRight: ['KeyL', 'L'],
+    },
+    rows: [
+      ['← → ↑ ↓ (ou I/J/K/L)', 'mover e subir escadas'],
+      ['A / S', 'cavar e tapar buracos'],
+      ['Espaço / S', 'iniciar partida'],
+    ],
+  },
+  {
+    match: /tetris/i,
+    title: 'TETRIS (BEAUTIFUL BOOT)',
+    preferKeyboard: true,
+    rows: [
+      ['A (menu disco)', 'iniciar Tetris'],
+      ['← →', 'mover peça'],
+      ['Espaço / Esc', 'girar peça / pausar'],
+      ['Space no menu', 'muda slot (Enter volta)'],
+    ],
+  },
+  {
+    match: /gorgon/i,
+    title: 'GORGON (SIRIUS)',
+    preferKeyboard: true,
+    arrowRemap: {
+      ArrowUp: ['KeyA', 'A'],
+      ArrowDown: ['KeyZ', 'Z'],
+    },
+    rows: [
+      ['← → ↑ ↓ (ou A/Z + ←/→)', 'pilotar nave'],
+      ['Espaço', 'disparar laser'],
+    ],
+  },
+  {
+    match: /super\s*taxman/i,
+    title: 'SUPER TAXMAN',
+    preferKeyboard: true,
+    arrowRemap: {
+      ArrowUp: ['Semicolon', ';'],
+      ArrowDown: ['Slash', '/'],
+    },
+    rows: [
+      ['← → ↑ ↓ (ou ← → ; /)', 'mover no labirinto'],
+      ['K / 1 / Espaço', 'modo teclado / iniciar / pausar'],
+    ],
+  },
+  {
+    match: /sea\s*dragon/i,
+    title: 'SEA DRAGON',
+    preferKeyboard: true,
+    arrowRemap: {
+      ArrowUp: ['KeyA', 'A'],
+      ArrowDown: ['KeyZ', 'Z'],
+    },
+    rows: [
+      ['← → ↑ ↓ (ou A/Z + ←/→)', 'navegar submarino'],
+      ['Espaço / Return', 'torpedo / carga'],
+    ],
+  },
+  {
+    match: /beer\s*run/i,
+    title: 'BEER RUN (SIRIUS)',
+    preferKeyboard: true,
+    rows: [
+      ['C (menu disco)', 'iniciar Beer Run'],
+      ['← → / Espaço', 'mover / subir e saltar'],
+    ],
+  },
+  {
+    match: /cross\s*fire/i,
+    title: 'CROSSFIRE (SIERRA)',
+    preferKeyboard: true,
+    rows: [
+      ['D (menu disco)', 'iniciar CrossFire'],
+      ['E / S / D / F', 'mover nave'],
+      ['I / J / K / L', 'atirar em 4 direções'],
+      ['Espaço', 'interromper disparo'],
+    ],
+  },
+  {
+    match: /\bescape\b/i,
+    title: 'ESCAPE',
+    preferKeyboard: true,
+    rows: [
+      ['↑ ↓ / Teclado', 'mover / opções'],
+      ['Return / Esc', 'confirmar / sair'],
+    ],
+  },
+  {
+    match: /pop\s*eye/i,
+    title: 'POPEYE',
+    rows: [
+      ['N (boot)', 'responder Não ao Mockingboard'],
+      ['Setas / Joystick', 'mover Popeye'],
+      ['Espaço', 'dar soco'],
+    ],
+  },
+  {
+    match: /eliminator/i,
+    title: 'ELIMINATOR',
+    rows: [
+      ['BRUN ELIMINATOR + Return', 'rodar no prompt ] do DOS'],
+      ['Setas / Joystick + Espaço', 'navegar e atirar'],
+    ],
+  },
+  {
+    match: /pest\s*patrol/i,
+    title: 'PEST PATROL',
+    rows: [
+      ['BRUN PEST PATROL + Return', 'rodar no prompt ] do DOS'],
+      ['← → + Espaço', 'mover e atirar'],
+    ],
+  },
+  {
+    match: /wavy\s*navy/i,
+    title: 'WAVY NAVY',
+    rows: [
+      ['Tecla 2 (menu)', 'iniciar Wavy Navy'],
+      ['Setas / Joystick + Espaço', 'navegar ondas e atirar'],
+    ],
+  },
+  {
+    match: /centipede_bugbattle|thief_threshold|adventureland/i,
+    title: 'MENU RAM / BOOT',
+    preferKeyboard: true,
+    rows: [
+      ['R + nome + Return', 'executar arquivo listado na tela'],
+      ['Espaço / Teclado', 'navegar e jogar'],
+    ],
+  },
+  {
+    match: /zork|hitchhiker|deadline|enchanter|starcross|suspended|cutthroats|ballyhoo|seastalker|moon\s*mist|mystery\s*house|mission-?asteroid|transylvania|chivalry|dungeon\s*campaign|akalabeth|odyssey|apple\s*logo|graforth|robot\s*war|bridge|monopoly|lemonade|shanghai|xadrez|mission\s*crush|broadsides|carrier\s*force|colonial\s*conquest|computer\s*baseball|quarterback|cosmic\s*balance|crush.*chomp|fighter\s*command|galactic\s*gladiators|knights.*desert|micro\s*league|panzer|president\s*elect|rails\s*west|tigers.*snow|titan\s*empire|aztec/i,
+    title: 'TECLADO / AVENTURA / ESTRATÉGIA',
+    preferKeyboard: true,
+    rows: [
+      ['Teclado PC', 'comandos de texto / estratégia'],
+      ['Return / Esc', 'confirmar / menu'],
+    ],
+  },
+  {
+    match: /breakout|pie-?man|autobahn|canyon\s*climber|crystal\s*castles|cyclod|guardian|jawbreaker|kamikaze|pitfall|narnia/i,
+    title: 'MENU BEAUTIFUL BOOT',
+    rows: [
+      ['Letras A–Z', 'abrir jogo da lista na tela'],
+      ['Space (no menu)', 'pede Slot (aperte Return p/ voltar)'],
+      ['Setas / Joystick + Espaço', 'controles após iniciar o jogo'],
     ],
   },
 ];

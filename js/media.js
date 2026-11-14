@@ -254,7 +254,7 @@ export const FLOPPY_DISKS = [
     "dskName": "montezuma.dsk",
     "description": "Explore a pirâmide asteca cheia de chaves e armadilhas.",
     "descriptionEn": "Explore the Aztec pyramid full of traps.",
-    "controls": "Setas / Joystick: Mover | Espaço: Saltar"
+    "controls": "Tecla 2 (menu disco) | Setas / Joystick + Espaço"
   },
   {
     "id": "disk-apple-panic",
@@ -414,7 +414,7 @@ export const FLOPPY_DISKS = [
     "dskName": "Centipede_BugBattle_Geopede_NightCrawler_Photar.dsk",
     "description": "Coletânea 5-em-1: Centipede, Bug Battle, Geopede, Night Crawler, Photar.",
     "descriptionEn": "5-in-1 arcade shooter collection.",
-    "controls": "Menu: escolha o jogo"
+    "controls": "Menu RAM: R + nome + Return | Joystick / Teclado"
   },
   {
     "id": "disk-defender",
@@ -670,7 +670,7 @@ export const FLOPPY_DISKS = [
     "dskName": "PopEye.do",
     "description": "Apanhe os corações da Olívia Palito fugindo do Brutus.",
     "descriptionEn": "Catch Olive Oyl hearts while dodging Bluto.",
-    "controls": "Setas / Joystick: Mover | Espaço: Soco"
+    "controls": "Boot: N (sem Mockingboard) | Setas / Joystick + Espaço"
   },
   {
     "id": "disk-rescue-raiders--cracked",
@@ -798,7 +798,7 @@ export const FLOPPY_DISKS = [
     "dskName": "thief_threshold_thunderbombs.dsk",
     "description": "Coletânea 3-em-1: Thief, Threshold e Thunderbombs.",
     "descriptionEn": "3-in-1 space arcade pack.",
-    "controls": "Menu: escolha o jogo"
+    "controls": "Menu RAM: R + nome + Return | Joystick / Teclado"
   },
   {
     "id": "disk-50missioncrushdisk",
@@ -1682,19 +1682,20 @@ export const FLOPPY_DISKS = [
   },
   {
     "id": "disk-marblemadnessdisk",
+    "id": "disk-appleciderspiderdisk",
     "type": "floppy",
-    "title": "MARBLE MADNESS (EA)",
-    "shortLabel": "MARBLE MADNESS",
-    "color": "#ca8a04",
-    "year": "1986",
-    "category": "classic",
+    "title": "APPLE CIDER SPIDER (SIERRA)",
+    "shortLabel": "APPLE CIDER SPIDER",
+    "color": "#ea580c",
+    "year": "1983",
+    "category": "arcade",
     "badge": ".DSK",
     "kind": "dsk-url",
-    "dskUrl": "disks/Marble Madness.dsk",
-    "dskName": "Marble Madness.dsk",
-    "description": "Conversão da Electronic Arts do clássico de Atari com pistas isométricas 3D.",
-    "descriptionEn": "Electronic Arts Apple II port of Atari isometric marble racing arcade.",
-    "controls": "Setas / Joystick"
+    "dskUrl": "disks/Apple Cider Spider.dsk",
+    "dskName": "Apple Cider Spider.dsk",
+    "description": "Ajude a aranha a tecer teias na fábrica de sidra desviando de insetos e sapos.",
+    "descriptionEn": "Sierra On-Line 1983 cider-factory climbing and web-spinning arcade classic.",
+    "controls": "1/2 jogadores + Return | Setas / Joystick"
   },
   {
     "id": "disk-microleaguebaseballdisk",
@@ -1905,19 +1906,19 @@ export const FLOPPY_DISKS = [
     "controls": "Teclado + Return"
   },
   {
-    "id": "disk-rampagedisk",
+    "id": "disk-borgdisk",
     "type": "floppy",
-    "title": "RAMPAGE (ACTIVISION)",
-    "shortLabel": "RAMPAGE",
+    "title": "BORG (SIRIUS SOFTWARE)",
+    "shortLabel": "BORG",
     "color": "#0d9488",
-    "year": "1988",
-    "category": "classic",
+    "year": "1981",
+    "category": "arcade",
     "badge": ".DSK",
     "kind": "dsk-url",
-    "dskUrl": "disks/Rampage.dsk",
-    "dskName": "Rampage.dsk",
-    "description": "Monstros gigantes escalam e demolem arranha-céus nesta conversão da Activision.",
-    "descriptionEn": "Activision port of the arcade giant-monster city-smashing hit.",
+    "dskUrl": "disks/Borg.dsk",
+    "dskName": "Borg.dsk",
+    "description": "Ação espacial clássica da Sirius Software enfrentando naves alienígenas no hiperespaço.",
+    "descriptionEn": "Classic 1981 Sirius Software arcade space shooter.",
     "controls": "Setas / Joystick + Espaço"
   },
   {
@@ -2177,20 +2178,20 @@ export const FLOPPY_DISKS = [
     "controls": "Setas / Joystick + Espaço"
   },
   {
-    "id": "disk-superzaxxondisk",
+    "id": "disk-odysseydisk",
     "type": "floppy",
-    "title": "SUPER ZAXXON (SEGA)",
-    "shortLabel": "SUPER ZAXXON",
+    "title": "ODYSSEY: THE COMPLEAT APVENTURE",
+    "shortLabel": "ODYSSEY RPG",
     "color": "#16a34a",
-    "year": "1984",
-    "category": "arcade",
+    "year": "1980",
+    "category": "adventure",
     "badge": ".DSK",
     "kind": "dsk-url",
-    "dskUrl": "disks/Super Zaxxon.dsk",
-    "dskName": "Super Zaxxon.dsk",
-    "description": "Sequência isométrica mais rápida e desafiadora do clássico Zaxxon.",
-    "descriptionEn": "Faster isometric tunnel-and-fortress sequel to Sega Zaxxon.",
-    "controls": "Setas / Joystick + Espaço"
+    "dskUrl": "disks/Odyssey.dsk",
+    "dskName": "Odyssey.dsk",
+    "description": "RPG épico pioneiro da Synergistic Software explorando ilhas, masmorras e mares.",
+    "descriptionEn": "1980 Synergistic Software pioneering RPG exploring islands, seas and dungeons.",
+    "controls": "Teclado (letras / números + Return)"
   },
   {
     "id": "disk-suspendeddisk",
@@ -2225,19 +2226,19 @@ export const FLOPPY_DISKS = [
     "controls": "Setas / Joystick + Espaço"
   },
   {
-    "id": "disk-tennischampionshipdisk",
+    "id": "disk-aquatrondisk",
     "type": "floppy",
-    "title": "TENNIS CHAMPIONSHIP",
-    "shortLabel": "TENNIS CHAMP",
+    "title": "AQUATRON (SIERRA ON-LINE)",
+    "shortLabel": "AQUATRON",
     "color": "#0891b2",
-    "year": "1985",
+    "year": "1983",
     "category": "arcade",
     "badge": ".DSK",
     "kind": "dsk-url",
-    "dskUrl": "disks/Tennis Championship.dsk",
-    "dskName": "Tennis Championship.dsk",
-    "description": "Partidas rápidas de tênis arcade em quadra clássica no Apple II.",
-    "descriptionEn": "Fast-paced arcade tennis matches on Apple II hi-res court.",
+    "dskUrl": "disks/Aquatron.dsk",
+    "dskName": "Aquatron.dsk",
+    "description": "Batalha aérea e submarina no estilo Defender protegendo bases oceânicas.",
+    "descriptionEn": "1983 Sierra On-Line Defender-style air and ocean battle shooter.",
     "controls": "Setas / Joystick + Espaço"
   },
   {
@@ -2318,7 +2319,7 @@ export const FLOPPY_DISKS = [
     "dskName": "Wavy Navy.dsk",
     "description": "Navegue sobre ondas gigantes enfrentando caças e helicópteros no mar.",
     "descriptionEn": "Sirius Software wave-riding shooter battling planes and helicopters.",
-    "controls": "Setas / Joystick + Espaço"
+    "controls": "Tecla 2 (menu disco) | Setas / Joystick + Espaço"
   },
   {
     "id": "disk-wayout",
