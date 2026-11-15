@@ -344,8 +344,8 @@ function applyLanguageUI() {
   setPack(
     'pack-a2-media',
     tr('Pack Disquetes .DSK', '.DSK Floppy Pack'),
-    tr('appleii.zip • 150 discos', 'appleii.zip • 150 disks'),
-    tr('Baixar todos os 150 disquetes .DSK do Apple II+ (6,8 MB)', 'Download all 150 Apple II+ .DSK disk images (6.8 MB)')
+    tr('appleii.zip • 250 discos', 'appleii.zip • 250 disks'),
+    tr('Baixar todos os 250 disquetes .DSK do Apple II+ (11,3 MB)', 'Download all 250 Apple II+ .DSK disk images (11.3 MB)')
   );
   setPack(
     'pack-a2-manuals',
@@ -702,6 +702,15 @@ const KNOWN_GAME_PROFILES = [
     ],
   },
   {
+    match: /tetris\s*ii/i,
+    title: 'TETRIS II',
+    preferKeyboard: true,
+    rows: [
+      ['← → / Setas', 'mover e girar peça'],
+      ['Espaço / Esc', 'derrubar / pausar'],
+    ],
+  },
+  {
     match: /tetris/i,
     title: 'TETRIS (BEAUTIFUL BOOT)',
     preferKeyboard: true,
@@ -772,12 +781,25 @@ const KNOWN_GAME_PROFILES = [
     ],
   },
   {
-    match: /\bescape\b/i,
+    match: /^escape\.dsk$/i,
     title: 'ESCAPE',
     preferKeyboard: true,
     rows: [
       ['↑ ↓ / Teclado', 'mover / opções'],
       ['Return / Esc', 'confirmar / sair'],
+    ],
+  },
+  {
+    match: /stargate|firebird|zenith/i,
+    title: 'SHOOTER TECLADO (A/Z + ←/→)',
+    preferKeyboard: true,
+    arrowRemap: {
+      ArrowUp: ['KeyA', 'A'],
+      ArrowDown: ['KeyZ', 'Z'],
+    },
+    rows: [
+      ['← → ↑ ↓ (ou A/Z + ←/→)', 'pilotar nave'],
+      ['Espaço / Esc', 'disparar / pausar'],
     ],
   },
   {
@@ -814,7 +836,7 @@ const KNOWN_GAME_PROFILES = [
     ],
   },
   {
-    match: /centipede_bugbattle|thief_threshold|adventureland/i,
+    match: /centipede_bugbattle|thief_threshold|adventureland|alien\s*munchies|cosmic\s*combat|epoch|galaxy\s*wars|missile\s*defense|pengo|red\s*alert|monty\s*plays\s*monopoly|laser\s*bounce|adventure\s*in\s*time|cross\s*country\s*rallye|artillery/i,
     title: 'MENU RAM / BOOT',
     preferKeyboard: true,
     rows: [
@@ -823,7 +845,7 @@ const KNOWN_GAME_PROFILES = [
     ],
   },
   {
-    match: /zork|hitchhiker|deadline|enchanter|starcross|suspended|cutthroats|ballyhoo|seastalker|moon\s*mist|mystery\s*house|mission-?asteroid|transylvania|chivalry|dungeon\s*campaign|akalabeth|odyssey|apple\s*logo|graforth|robot\s*war|bridge|monopoly|lemonade|shanghai|xadrez|mission\s*crush|broadsides|carrier\s*force|colonial\s*conquest|computer\s*baseball|quarterback|cosmic\s*balance|crush.*chomp|fighter\s*command|galactic\s*gladiators|knights.*desert|micro\s*league|panzer|president\s*elect|rails\s*west|tigers.*snow|titan\s*empire|aztec/i,
+    match: /zork|hitchhiker|deadline|enchanter|starcross|suspended|cutthroats|ballyhoo|seastalker|moon\s*mist|mystery\s*house|mission-?asteroid|transylvania|chivalry|dungeon\s*campaign|akalabeth|odyssey|apple\s*logo|graforth|robot\s*war|bridge|monopoly|lemonade|shanghai|xadrez|mission\s*crush|broadsides|carrier\s*force|colonial\s*conquest|computer\s*baseball|quarterback|cosmic\s*balance|crush.*chomp|fighter\s*command|galactic\s*gladiators|knights.*desert|micro\s*league|panzer|president\s*elect|rails\s*west|tigers.*snow|titan\s*empire|aztec|sargon\s*iii|reversi|super\s*othello|solitaire|scrabble|jeopardy|crossword|geography\s*trivia|vaults\s*of\s*zurich|cavern\s*of\s*olympus|creature\s*venture|escape\s*from\s*traam|apple\s*adventure|dragons?\s*eye|agent\s*usa|balance\s*of\s*power|a2-?fs2|solo\s*flight|b-24|b1\s*bomber|air\s*combat|air\s*traffic\s*controller|baltic\s*1985|baseball\s*strategy|battalion\s*commander|battle\s*for\s*normandy|battle\s*of\s*shiloh|battle\s*of\s*the|north\s*atlantic|taipan|united\s*states\s*adventure|space\s*vikings|space\s*station\s*zulu|galactic\s*empire|hong\s*kong\s*majong|advanced\s*blackjack|computer\s*ambush|computer\s*bismarck|computer\s*conflict/i,
     title: 'TECLADO / AVENTURA / ESTRATÉGIA',
     preferKeyboard: true,
     rows: [
@@ -832,7 +854,7 @@ const KNOWN_GAME_PROFILES = [
     ],
   },
   {
-    match: /breakout|pie-?man|autobahn|canyon\s*climber|crystal\s*castles|cyclod|guardian|jawbreaker|kamikaze|pitfall|narnia/i,
+    match: /breakout|pie-?man|autobahn|canyon\s*climber|crystal\s*castles|cyclod|guardian|jawbreaker|kamikaze|pitfall|narnia|alien\s*ambush|alien\s*typhoon|horizon\s*v|people\s*pong|black\s*flame\s*pinball|apple-?oids/i,
     title: 'MENU BEAUTIFUL BOOT',
     rows: [
       ['Letras A–Z', 'abrir jogo da lista na tela'],
@@ -2537,7 +2559,7 @@ function renderCatalogModal() {
     if (isA2) {
       catalogZipLink.href = 'https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/appleii.zip';
       catalogZipLink.removeAttribute('download');
-      catalogZipLink.textContent = tr('📥 Baixar Pack appleii.zip (6,8 MB)', '📥 Download appleii.zip Pack (6.8 MB)');
+      catalogZipLink.textContent = tr('📥 Baixar Pack appleii.zip (11,3 MB)', '📥 Download appleii.zip Pack (11.3 MB)');
     } else {
       catalogZipLink.href = 'https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/tk2000.zip';
       catalogZipLink.removeAttribute('download');
