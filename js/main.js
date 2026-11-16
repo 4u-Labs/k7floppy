@@ -344,8 +344,8 @@ function applyLanguageUI() {
   setPack(
     'pack-a2-media',
     tr('Pack Disquetes .DSK', '.DSK Floppy Pack'),
-    tr('appleii.zip • 250 discos', 'appleii.zip • 250 disks'),
-    tr('Baixar todos os 250 disquetes .DSK do Apple II+ (11,3 MB)', 'Download all 250 Apple II+ .DSK disk images (11.3 MB)')
+    tr('appleii.zip • 350 discos', 'appleii.zip • 350 disks'),
+    tr('Baixar todos os 350 disquetes .DSK do Apple II+ (15,5 MB)', 'Download all 350 Apple II+ .DSK disk images (15.5 MB)')
   );
   setPack(
     'pack-a2-manuals',
@@ -845,7 +845,16 @@ const KNOWN_GAME_PROFILES = [
     ],
   },
   {
-    match: /zork|hitchhiker|deadline|enchanter|starcross|suspended|cutthroats|ballyhoo|seastalker|moon\s*mist|mystery\s*house|mission-?asteroid|transylvania|chivalry|dungeon\s*campaign|akalabeth|odyssey|apple\s*logo|graforth|robot\s*war|bridge|monopoly|lemonade|shanghai|xadrez|mission\s*crush|broadsides|carrier\s*force|colonial\s*conquest|computer\s*baseball|quarterback|cosmic\s*balance|crush.*chomp|fighter\s*command|galactic\s*gladiators|knights.*desert|micro\s*league|panzer|president\s*elect|rails\s*west|tigers.*snow|titan\s*empire|aztec|sargon\s*iii|reversi|super\s*othello|solitaire|scrabble|jeopardy|crossword|geography\s*trivia|vaults\s*of\s*zurich|cavern\s*of\s*olympus|creature\s*venture|escape\s*from\s*traam|apple\s*adventure|dragons?\s*eye|agent\s*usa|balance\s*of\s*power|a2-?fs2|solo\s*flight|b-24|b1\s*bomber|air\s*combat|air\s*traffic\s*controller|baltic\s*1985|baseball\s*strategy|battalion\s*commander|battle\s*for\s*normandy|battle\s*of\s*shiloh|battle\s*of\s*the|north\s*atlantic|taipan|united\s*states\s*adventure|space\s*vikings|space\s*station\s*zulu|galactic\s*empire|hong\s*kong\s*majong|advanced\s*blackjack|computer\s*ambush|computer\s*bismarck|computer\s*conflict/i,
+    match: /goonies|zorro/i,
+    title: 'GOONIES / ZORRO (CALIBRAÇÃO JOYSTICK)',
+    rows: [
+      ['Calibração inicial', 'mover Setas na direção pedida + Alt/Espaço'],
+      ['← → ↑ ↓', 'mover personagem / escalar'],
+      ['Alt / Espaço', 'pular / ação (Botão 0)'],
+    ],
+  },
+  {
+    match: /zork|hitchhiker|deadline|enchanter|starcross|suspended|cutthroats|ballyhoo|seastalker|moon\s*mist|mystery\s*house|mission-?asteroid|transylvania|chivalry|dungeon\s*campaign|akalabeth|odyssey|apple\s*logo|graforth|robot\s*war|bridge|monopoly|lemonade|shanghai|xadrez|mission\s*crush|broadsides|carrier\s*force|colonial\s*conquest|computer\s*baseball|quarterback|cosmic\s*balance|crush.*chomp|fighter\s*command|galactic\s*gladiators|knights.*desert|micro\s*league|panzer|president\s*elect|rails\s*west|tigers.*snow|titan\s*empire|aztec|sargon\s*iii|reversi|super\s*othello|solitaire|scrabble|jeopardy|crossword|geography\s*trivia|vaults\s*of\s*zurich|cavern\s*of\s*olympus|creature\s*venture|escape\s*from\s*traam|apple\s*adventure|dragons?\s*eye|agent\s*usa|balance\s*of\s*power|a2-?fs[12]|solo\s*flight|b-24|b1\s*bomber|air\s*combat|air\s*traffic\s*controller|baltic\s*1985|baseball\s*strategy|battalion\s*commander|battle\s*for\s*normandy|battle\s*of\s*shiloh|battle\s*of\s*the|north\s*atlantic|taipan|united\s*states\s*adventure|space\s*vikings|space\s*station\s*zulu|galactic\s*empire|hong\s*kong\s*majong|advanced\s*blackjack|computer\s*ambush|computer\s*bismarck|computer\s*conflict|lurking\s*horror|suspect|cranston\s*manor|robots\s*of\s*dawn|sands\s*of\s*egypt|law\s*of\s*the\s*west|secret\s*agent|swiss\s*family|nukewar|midway\s*campaign|computer\s*napoleonics|conflict\s*2500|operation\s*apocolypse|planet\s*miners|warp\s*factor|cartels|three\s*mile\s*island|santa\s*paravia|caverns\s*of\s*freitag|return\s*of\s*heracles|phantasie\s*iii|prisoner\s*ii|murder\s*on\s*the\s*zinderneuf|tomahawk|black\s*magic|crown\s*of\s*arthain|fortess|empire\s*i|dragon.?s\s*keep|police\s*artist|fun\s*house\s*maze|chipwits|demon.?s\s*forge|countdown\s*to\s*shutdown|crime\s*(and\s*punishment|stopper)|race\s*for\s*midnight|sub\s*mission|io\s*silver|beast\s*war|adventure\s*to\s*atlantis|programmers\s*flight\s*simulator|blackjack|penqueriel/i,
     title: 'TECLADO / AVENTURA / ESTRATÉGIA',
     preferKeyboard: true,
     rows: [
@@ -2559,7 +2568,7 @@ function renderCatalogModal() {
     if (isA2) {
       catalogZipLink.href = 'https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/appleii.zip';
       catalogZipLink.removeAttribute('download');
-      catalogZipLink.textContent = tr('📥 Baixar Pack appleii.zip (11,3 MB)', '📥 Download appleii.zip Pack (11.3 MB)');
+      catalogZipLink.textContent = tr('📥 Baixar Pack appleii.zip (15,5 MB)', '📥 Download appleii.zip Pack (15.5 MB)');
     } else {
       catalogZipLink.href = 'https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/tk2000.zip';
       catalogZipLink.removeAttribute('download');

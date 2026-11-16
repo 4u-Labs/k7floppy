@@ -1,4 +1,4 @@
-const CACHE_NAME = 'k7floppy-v1.0.8';
+const CACHE_NAME = 'k7floppy-v1.0.9';
 
 self.addEventListener('install', () => {
   self.skipWaiting();

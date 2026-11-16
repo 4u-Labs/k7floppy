@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>K7 &amp; Floppy — Emulador Microdigital TK 2000 II &amp; Apple II+ (6502) | 4u-Labs</title>
-  <meta name="description" content="Bancada retrô real no navegador: alterne entre Microdigital TK 2000 II (gravador K7 com 110+ fitas .CT2 e CompatBoot) e Apple II+ (drive Disk II com 250 disquetes .DSK), manuais interativos e BASIC. Grátis, bilíngue e 100% client-side." />
+  <meta name="description" content="Bancada retrô real no navegador: alterne entre Microdigital TK 2000 II (gravador K7 com 110+ fitas .CT2 e CompatBoot) e Apple II+ (drive Disk II com 350 disquetes .DSK), manuais interativos e BASIC. Grátis, bilíngue e 100% client-side." />
   <meta name="keywords" content="K7 &amp; Floppy, TK 2000, Microdigital TK2000 II, Apple II+, emulador Apple II online, emulador TK 2000 online, fita K7 .CT2, disquete .DSK, Disk II, Data Recorder, CPU 6502, Karateka, Choplifter, Lode Runner, 4u-Labs" />
   <meta name="author" content="Fabiano Braga // 4u-Labs (4U.IA.BR)" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -22,7 +22,7 @@
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:title" content="K7 &amp; Floppy — Emulador Real TK 2000 II &amp; Apple II+ no Navegador" />
-  <meta property="og:description" content="Reviva os anos 80 na mesa retrô: gravador K7 com 110+ fitas e drive Disk II 5¼&quot; com 250 disquetes .DSK, CPU 6502 real, monitor CRT e manuais BASIC PT/EN." />
+  <meta property="og:description" content="Reviva os anos 80 na mesa retrô: gravador K7 com 110+ fitas e drive Disk II 5¼&quot; com 350 disquetes .DSK, CPU 6502 real, monitor CRT e manuais BASIC PT/EN." />
   <meta property="og:url" content="https://4u.ia.br/app/k7floppy/" />
   <meta property="og:image" content="https://4u.ia.br/app/k7floppy/og-banner.webp" />
   <meta property="og:image:type" content="image/webp" />
@@ -76,8 +76,8 @@
         <button id="btn-mode-tk2000" class="machine-switch-btn active" title="Usar Microdigital TK 2000 II (110 apps em fita K7)">
           🖥️ TK 2000 II <span class="machine-count-pill" id="tk-switch-count">110 apps</span>
         </button>
-        <button id="btn-mode-apple2" class="machine-switch-btn" title="Usar Apple II+ (250 apps em disquete .DSK)">
-          🍎 Apple II+ <span class="machine-count-pill" id="a2-switch-count">250 apps</span>
+        <button id="btn-mode-apple2" class="machine-switch-btn" title="Usar Apple II+ (350 apps em disquete .DSK)">
+          🍎 Apple II+ <span class="machine-count-pill" id="a2-switch-count">350 apps</span>
         </button>
       </div>
       <div class="topbar-actions">
@@ -218,7 +218,7 @@
               <div class="rack-title" id="floppy-rack-title">DISQUETES APPLE II</div>
               <div class="rack-header-actions">
                 <button type="button" id="btn-open-floppy-catalog" class="rack-catalog-btn" title="Abrir Caixa Visual de Disquetes 5¼&quot; em tela cheia">🗂️ Caixa</button>
-                <a href="https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/appleii.zip" target="_blank" rel="noopener noreferrer" class="rack-zip-link" title="Baixar pacote completo appleii.zip (11,3 MB) hospedado no GitHub Releases">⬇ ZIP</a>
+                <a href="https://github.com/4u-Labs/k7floppy/releases/download/v1.0.0/appleii.zip" target="_blank" rel="noopener noreferrer" class="rack-zip-link" title="Baixar pacote completo appleii.zip (15,5 MB) hospedado no GitHub Releases">⬇ ZIP</a>
               </div>
             </div>
             <div class="rack-filter-bar">
@@ -232,7 +232,7 @@
               </div>
             </div>
             <div class="rack-stats-bar" id="floppy-stats-bar" aria-live="polite">
-              <span class="rack-stats-main"><span class="rack-stats-dot"></span><strong id="floppy-count-badge">250</strong> <span id="floppy-stats-label">apps disponíveis</span></span>
+              <span class="rack-stats-main"><span class="rack-stats-dot"></span><strong id="floppy-count-badge">350</strong> <span id="floppy-stats-label">apps disponíveis</span></span>
               <span class="rack-stats-tag">.DSK 5¼"</span>
             </div>
             <div id="floppy-rack" class="floppy-rack"></div>
@@ -362,14 +362,14 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="desk-pack-btn pack-media a2"
-                title="Baixar todos os 250 disquetes .DSK do Apple II+ (11,3 MB)"
+                title="Baixar todos os 350 disquetes .DSK do Apple II+ (15,5 MB)"
               >
                 <span class="pack-glyph" aria-hidden="true">💾</span>
                 <span class="pack-meta">
                   <strong>Pack Disquetes .DSK</strong>
-                  <small>appleii.zip • 250 discos</small>
+                  <small>appleii.zip • 350 discos</small>
                 </span>
-                <span class="pack-dl-pill">⬇ 11,3 MB</span>
+                <span class="pack-dl-pill">⬇ 15,5 MB</span>
               </a>
               <a
                 id="pack-a2-manuals"
@@ -754,6 +754,6 @@
     </div>
   </div>
 
-  <script type="module" src="js/main.js?v=20261115a"></script>
+  <script type="module" src="js/main.js?v=20261115d"></script>
 </body>
 </html>
