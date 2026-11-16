@@ -9,7 +9,9 @@ const CODE_TO_MATRIX = {
   Digit0: [4, 5], Digit9: [4, 4], Digit8: [4, 3], Digit7: [4, 2], Digit6: [4, 1], ArrowRight: [4, 0],
   KeyP: [5, 5], KeyO: [5, 4], KeyI: [5, 3], KeyU: [5, 2], KeyY: [5, 1], ArrowDown: [5, 0],
   KeyH: [6, 1], KeyJ: [6, 2], KeyK: [6, 3], KeyL: [6, 4], ArrowUp: [6, 0],
-  KeyN: [7, 1], KeyM: [7, 2], Comma: [7, 3], Period: [7, 4], Enter: [7, 0], NumpadEnter: [7, 0],
+  KeyN: [7, 1], KeyM: [7, 2], Comma: [7, 3], Period: [7, 4], NumpadDecimal: [7, 4], Enter: [7, 0], NumpadEnter: [7, 0],
+  Numpad0: [4, 5], Numpad1: [3, 5], Numpad2: [3, 4], Numpad3: [3, 3], Numpad4: [3, 2],
+  Numpad5: [3, 1], Numpad6: [4, 1], Numpad7: [4, 2], Numpad8: [4, 3], Numpad9: [4, 4],
 };
 
 // Mapeia caracteres reais digitados (suporte ABNT2 / US) para a matriz + estado Shift do TK 2000

@@ -404,8 +404,8 @@ export class Apple2Machine {
       return rom[addr - 0xd000];
     }
 
-    // $C600-$C6FF: Firmware Disk II Slot 6
-    if (addr >= 0xc600 && addr <= 0xc6ff) {
+    // $C600-$C6FF: Firmware Disk II Slot 6 (apenas quando há disquete inserido; sem disco cai direto no BASIC)
+    if (addr >= 0xc600 && addr <= 0xc6ff && this.disk2.hasDisk()) {
       return this.disk2.readBootRom(addr - 0xc600);
     }
 

@@ -1917,7 +1917,8 @@ function setEmulatedTouchKey(code, key, isDown, opts = {}) {
       apple2.setKeyState(mapped.code, mapped.key, true, stickyCtrl);
       clearStickyModifiers();
     } else {
-      machine.keyboard.setKeyState(code, key, true, stickyShift, stickyCtrl);
+      const keyChar = stickyShift && sub ? sub : key;
+      machine.keyboard.setKeyState(code, keyChar, true, stickyShift, stickyCtrl);
     }
     return;
   }
@@ -2446,8 +2447,13 @@ if (!apple2.userRom) {
   fetch('roms/apple2plus.rom')
     .then((r) => (r.ok ? r.arrayBuffer() : null))
     .then((buf) => {
-      if (buf && apple2.setUserRom(new Uint8Array(buf)) && a2RomStatus) {
-        a2RomStatus.textContent = `ROM Apple II+ carregada (${Math.round(buf.byteLength / 1024)}K)`;
+      if (buf && apple2.setUserRom(new Uint8Array(buf))) {
+        if (a2RomStatus) {
+          a2RomStatus.textContent = `ROM Apple II+ carregada (${Math.round(buf.byteLength / 1024)}K)`;
+        }
+        if (activeMode === 'apple2' && !apple2.disk2.hasDisk()) {
+          apple2.hardReset();
+        }
       }
     })
     .catch(() => {});
